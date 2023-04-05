@@ -42,11 +42,14 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.grpPrimaryScriptHotkeys = new System.Windows.Forms.GroupBox();
+            this.btnCloseAllScripts = new System.Windows.Forms.Button();
+            this.btnOpenAllScripts = new System.Windows.Forms.Button();
             this.grpSecondaryScriptHotkeys = new System.Windows.Forms.GroupBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.txtActivateDitto = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.btnOpenCropMarginCalculatorForShareX = new System.Windows.Forms.Button();
             this.txtToggleRecordAudio = new System.Windows.Forms.TextBox();
             this.txtTakeScreenshot = new System.Windows.Forms.TextBox();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
@@ -62,9 +65,6 @@
             this.lblDelayForRecordingToStart = new System.Windows.Forms.Label();
             this.grpDelays = new System.Windows.Forms.GroupBox();
             this.linkLblAutoHotkeyWebsite = new System.Windows.Forms.LinkLabel();
-            this.btnOpenAllScripts = new System.Windows.Forms.Button();
-            this.btnCloseAllScripts = new System.Windows.Forms.Button();
-            this.btnOpenCropMarginCalculatorForShareX = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.grpPrimaryScriptHotkeys.SuspendLayout();
             this.grpSecondaryScriptHotkeys.SuspendLayout();
@@ -201,22 +201,42 @@
             this.grpPrimaryScriptHotkeys.Controls.Add(this.txtPasteMultipleImagesFromDitto);
             this.grpPrimaryScriptHotkeys.Controls.Add(this.lblTakeScreenshotAndRecordAudioWithShareX);
             this.grpPrimaryScriptHotkeys.Controls.Add(this.lbPasteImageAndAudioFromDitto);
-            this.grpPrimaryScriptHotkeys.Location = new System.Drawing.Point(47, 137);
+            this.grpPrimaryScriptHotkeys.Location = new System.Drawing.Point(47, 131);
             this.grpPrimaryScriptHotkeys.Name = "grpPrimaryScriptHotkeys";
             this.grpPrimaryScriptHotkeys.Size = new System.Drawing.Size(400, 123);
-            this.grpPrimaryScriptHotkeys.TabIndex = 0;
+            this.grpPrimaryScriptHotkeys.TabIndex = 2;
             this.grpPrimaryScriptHotkeys.TabStop = false;
             this.grpPrimaryScriptHotkeys.Text = "Primary script hotkeys";
+            // 
+            // btnCloseAllScripts
+            // 
+            this.btnCloseAllScripts.Location = new System.Drawing.Point(203, 92);
+            this.btnCloseAllScripts.Name = "btnCloseAllScripts";
+            this.btnCloseAllScripts.Size = new System.Drawing.Size(87, 23);
+            this.btnCloseAllScripts.TabIndex = 7;
+            this.btnCloseAllScripts.Text = "Close all scripts";
+            this.btnCloseAllScripts.UseVisualStyleBackColor = true;
+            this.btnCloseAllScripts.Click += new System.EventHandler(this.btnCloseAllScripts_Click);
+            // 
+            // btnOpenAllScripts
+            // 
+            this.btnOpenAllScripts.Location = new System.Drawing.Point(110, 92);
+            this.btnOpenAllScripts.Name = "btnOpenAllScripts";
+            this.btnOpenAllScripts.Size = new System.Drawing.Size(87, 23);
+            this.btnOpenAllScripts.TabIndex = 6;
+            this.btnOpenAllScripts.Text = "Open all scripts";
+            this.btnOpenAllScripts.UseVisualStyleBackColor = true;
+            this.btnOpenAllScripts.Click += new System.EventHandler(this.btnOpenAllScripts_Click);
             // 
             // grpSecondaryScriptHotkeys
             // 
             this.grpSecondaryScriptHotkeys.Controls.Add(this.groupBox5);
             this.grpSecondaryScriptHotkeys.Controls.Add(this.groupBox4);
             this.grpSecondaryScriptHotkeys.Controls.Add(this.groupBox6);
-            this.grpSecondaryScriptHotkeys.Location = new System.Drawing.Point(47, 262);
+            this.grpSecondaryScriptHotkeys.Location = new System.Drawing.Point(47, 256);
             this.grpSecondaryScriptHotkeys.Name = "grpSecondaryScriptHotkeys";
             this.grpSecondaryScriptHotkeys.Size = new System.Drawing.Size(400, 269);
-            this.grpSecondaryScriptHotkeys.TabIndex = 1;
+            this.grpSecondaryScriptHotkeys.TabIndex = 3;
             this.grpSecondaryScriptHotkeys.TabStop = false;
             this.grpSecondaryScriptHotkeys.Text = "Secondary script hotkeys";
             // 
@@ -263,6 +283,16 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "ShareX";
             // 
+            // btnOpenCropMarginCalculatorForShareX
+            // 
+            this.btnOpenCropMarginCalculatorForShareX.Location = new System.Drawing.Point(86, 116);
+            this.btnOpenCropMarginCalculatorForShareX.Name = "btnOpenCropMarginCalculatorForShareX";
+            this.btnOpenCropMarginCalculatorForShareX.Size = new System.Drawing.Size(209, 23);
+            this.btnOpenCropMarginCalculatorForShareX.TabIndex = 5;
+            this.btnOpenCropMarginCalculatorForShareX.Text = "Open crop margin calculator for ShareX";
+            this.btnOpenCropMarginCalculatorForShareX.UseVisualStyleBackColor = true;
+            this.btnOpenCropMarginCalculatorForShareX.Click += new System.EventHandler(this.btnOpenCropMarginCalculatorForShareX_Click_1);
+            // 
             // txtToggleRecordAudio
             // 
             this.txtToggleRecordAudio.Location = new System.Drawing.Point(280, 39);
@@ -293,10 +323,10 @@
             // radLeftMouse
             // 
             this.radLeftMouse.AutoSize = true;
-            this.radLeftMouse.Location = new System.Drawing.Point(205, 19);
+            this.radLeftMouse.Location = new System.Drawing.Point(98, 19);
             this.radLeftMouse.Name = "radLeftMouse";
             this.radLeftMouse.Size = new System.Drawing.Size(110, 17);
-            this.radLeftMouse.TabIndex = 1;
+            this.radLeftMouse.TabIndex = 0;
             this.radLeftMouse.TabStop = true;
             this.radLeftMouse.Text = "Left mouse button";
             this.radLeftMouse.UseVisualStyleBackColor = true;
@@ -305,10 +335,10 @@
             // radSpaceBar
             // 
             this.radSpaceBar.AutoSize = true;
-            this.radSpaceBar.Location = new System.Drawing.Point(125, 19);
+            this.radSpaceBar.Location = new System.Drawing.Point(214, 19);
             this.radSpaceBar.Name = "radSpaceBar";
             this.radSpaceBar.Size = new System.Drawing.Size(74, 17);
-            this.radSpaceBar.TabIndex = 0;
+            this.radSpaceBar.TabIndex = 1;
             this.radSpaceBar.TabStop = true;
             this.radSpaceBar.Text = "Space bar";
             this.radSpaceBar.UseVisualStyleBackColor = true;
@@ -316,20 +346,20 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(38, 619);
+            this.btnSave.Location = new System.Drawing.Point(38, 613);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(204, 23);
-            this.btnSave.TabIndex = 3;
+            this.btnSave.TabIndex = 5;
             this.btnSave.Text = "Save changes and open/reload scripts";
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnReset
             // 
-            this.btnReset.Location = new System.Drawing.Point(323, 619);
+            this.btnReset.Location = new System.Drawing.Point(323, 613);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(133, 23);
-            this.btnReset.TabIndex = 5;
+            this.btnReset.TabIndex = 7;
             this.btnReset.Text = "Reset to default settings";
             this.btnReset.UseVisualStyleBackColor = true;
             this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
@@ -337,19 +367,19 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(14, 9);
+            this.label6.Location = new System.Drawing.Point(9, 9);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(480, 91);
-            this.label6.TabIndex = 7;
+            this.label6.TabIndex = 0;
             this.label6.Text = resources.GetString("label6.Text");
             this.label6.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // btnClose
             // 
-            this.btnClose.Location = new System.Drawing.Point(248, 619);
+            this.btnClose.Location = new System.Drawing.Point(248, 613);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(69, 23);
-            this.btnClose.TabIndex = 4;
+            this.btnClose.TabIndex = 6;
             this.btnClose.Text = "Exit";
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
@@ -394,54 +424,24 @@
             this.grpDelays.Controls.Add(this.lblDelayForRecordingToStart);
             this.grpDelays.Controls.Add(this.lblGeneralDelay);
             this.grpDelays.Controls.Add(this.txtDelayForRecordingToStart);
-            this.grpDelays.Location = new System.Drawing.Point(47, 534);
+            this.grpDelays.Location = new System.Drawing.Point(47, 528);
             this.grpDelays.Name = "grpDelays";
             this.grpDelays.Size = new System.Drawing.Size(400, 73);
-            this.grpDelays.TabIndex = 2;
+            this.grpDelays.TabIndex = 4;
             this.grpDelays.TabStop = false;
             this.grpDelays.Text = "Delays";
             // 
             // linkLblAutoHotkeyWebsite
             // 
             this.linkLblAutoHotkeyWebsite.AutoSize = true;
-            this.linkLblAutoHotkeyWebsite.Location = new System.Drawing.Point(12, 110);
+            this.linkLblAutoHotkeyWebsite.Location = new System.Drawing.Point(12, 108);
             this.linkLblAutoHotkeyWebsite.Name = "linkLblAutoHotkeyWebsite";
             this.linkLblAutoHotkeyWebsite.Size = new System.Drawing.Size(474, 13);
-            this.linkLblAutoHotkeyWebsite.TabIndex = 8;
+            this.linkLblAutoHotkeyWebsite.TabIndex = 1;
             this.linkLblAutoHotkeyWebsite.TabStop = true;
             this.linkLblAutoHotkeyWebsite.Text = "For further information on this hotkey language, please consult AutoHotkey\'s offi" +
     "cial documentation.";
             this.linkLblAutoHotkeyWebsite.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLblAutoHotkeyWebsite_LinkClicked);
-            // 
-            // btnOpenAllScripts
-            // 
-            this.btnOpenAllScripts.Location = new System.Drawing.Point(110, 92);
-            this.btnOpenAllScripts.Name = "btnOpenAllScripts";
-            this.btnOpenAllScripts.Size = new System.Drawing.Size(87, 23);
-            this.btnOpenAllScripts.TabIndex = 12;
-            this.btnOpenAllScripts.Text = "Open all scripts";
-            this.btnOpenAllScripts.UseVisualStyleBackColor = true;
-            this.btnOpenAllScripts.Click += new System.EventHandler(this.btnOpenAllScripts_Click);
-            // 
-            // btnCloseAllScripts
-            // 
-            this.btnCloseAllScripts.Location = new System.Drawing.Point(203, 92);
-            this.btnCloseAllScripts.Name = "btnCloseAllScripts";
-            this.btnCloseAllScripts.Size = new System.Drawing.Size(87, 23);
-            this.btnCloseAllScripts.TabIndex = 13;
-            this.btnCloseAllScripts.Text = "Close all scripts";
-            this.btnCloseAllScripts.UseVisualStyleBackColor = true;
-            this.btnCloseAllScripts.Click += new System.EventHandler(this.btnCloseAllScripts_Click);
-            // 
-            // btnOpenCropMarginCalculatorForShareX
-            // 
-            this.btnOpenCropMarginCalculatorForShareX.Location = new System.Drawing.Point(86, 116);
-            this.btnOpenCropMarginCalculatorForShareX.Name = "btnOpenCropMarginCalculatorForShareX";
-            this.btnOpenCropMarginCalculatorForShareX.Size = new System.Drawing.Size(209, 23);
-            this.btnOpenCropMarginCalculatorForShareX.TabIndex = 9;
-            this.btnOpenCropMarginCalculatorForShareX.Text = "Open crop margin calculator for ShareX";
-            this.btnOpenCropMarginCalculatorForShareX.UseVisualStyleBackColor = true;
-            this.btnOpenCropMarginCalculatorForShareX.Click += new System.EventHandler(this.btnOpenCropMarginCalculatorForShareX_Click_1);
             // 
             // Form1
             // 
@@ -459,6 +459,7 @@
             this.Controls.Add(this.grpPrimaryScriptHotkeys);
             this.Name = "Form1";
             this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Options for Giovanni Smith\'s sentence mining scripts";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox1.ResumeLayout(false);

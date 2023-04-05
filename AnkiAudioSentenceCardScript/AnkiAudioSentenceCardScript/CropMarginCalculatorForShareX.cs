@@ -20,7 +20,8 @@ namespace AnkiAudioSentenceCardScript
         private void CropMarginCalculatorForShareX_Load(object sender, EventArgs e)
         {
             /*
-             *  X: 416 | Y: 312 | Right: 1127 | Bottom: 647
+             * 
+                X: 416 | Y: 312 | Right: 1127 | Bottom: 647
                 Width: 712 px | Height: 336 px | Area: 239232 px | Perimeter: 2096 px
                 Distance: 785.97 px | Angle: 25.23°
 
@@ -28,6 +29,8 @@ namespace AnkiAudioSentenceCardScript
 
                 416,312,793,433
              */
+            txtMonitorWidth.Text = 1920 + "";
+            txtMonitorHeight.Text = 1080 + "";
         }
 
         private void btnCalculateValues_Click(object sender, EventArgs e)
@@ -46,7 +49,11 @@ namespace AnkiAudioSentenceCardScript
             int.TryParse(txtMonitorHeight.Text, out intMonitorHeight);
 
             txtValues.Text = xValue + ", " + yValue + ", " + (intMonitorWidth - rightValue) + ", " + (intMonitorHeight - bottomValue);
+        }
 
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

@@ -241,12 +241,7 @@ namespace AnkiAudioSentenceCardScript
             startAutohotkeyScript("PasteMultipleImagesWithDitto.ahk");
         }
 
-        private void btnOpenAllScripts_Click(object sender, EventArgs e)
-        {
-            openAllScripts();
-        }
-
-        private void btnCloseAllScripts_Click(object sender, EventArgs e)
+        public static void closeAllScripts()
         {
             System.Diagnostics.Process process = new System.Diagnostics.Process();
             System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo();
@@ -257,18 +252,20 @@ namespace AnkiAudioSentenceCardScript
             process.Start();
         }
 
+        private void btnOpenAllScripts_Click(object sender, EventArgs e)
+        {
+            openAllScripts();
+        }
+
+        private void btnCloseAllScripts_Click(object sender, EventArgs e)
+        {
+            closeAllScripts();
+        }
+
         private void btnOpenCropMarginCalculatorForShareX_Click_1(object sender, EventArgs e)
         {
-            // startAutohotkeyScript("CropMarginCalculatorForShareXRuler.ahk");
             Form form = new CropMarginCalculatorForShareX();
             form.ShowDialog();
-            /*
-            if (ResetToDefaultConfirmation.resetWasClicked)
-            {
-                load();
-                save();
-            }
-            */
         }
     }
 }

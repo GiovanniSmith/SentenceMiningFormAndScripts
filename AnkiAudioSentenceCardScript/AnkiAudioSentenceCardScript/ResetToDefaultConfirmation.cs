@@ -42,6 +42,8 @@ namespace AnkiAudioSentenceCardScript
             Form1.clearFileAndWrite(@"helper/delayGeneral.txt", "250");
             Form1.clearFileAndWrite(@"helper/delayForRecordingToStart.txt", "250");
 
+            Form1.closeAllScripts();
+
             this.Close();
         }
 

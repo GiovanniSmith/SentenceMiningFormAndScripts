@@ -73,6 +73,7 @@
             this.Controls.Add(this.lblConfirmation);
             this.Name = "ResetToDefaultConfirmation";
             this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Reset Confirmation";
             this.Load += new System.EventHandler(this.ResetToDefaultConfirmation_Load);
             this.ResumeLayout(false);
