@@ -80,6 +80,7 @@ namespace AnkiAudioSentenceCardScript
         }
         private void save()
         {
+            // change all files to value in text boxes
             clearFileAndWrite(@"helper/hotkeyForTakeScreenshotAndRecordAudioWithShareX.txt", txtTakeScreenshotAndRecordAudioWithShareX.Text);
             clearFileAndWrite(@"helper/hotkeyForPasteImageAndAudioFromDitto.txt", txtPasteImageAndAudioFromDitto.Text);
             clearFileAndWrite(@"helper/hotkeyForPasteMultipleImagesFromDitto.txt", txtPasteMultipleImagesFromDitto.Text);
@@ -96,7 +97,7 @@ namespace AnkiAudioSentenceCardScript
             else if (radSpaceBar.Checked)
                 clearFileAndWrite(@"helper/PlayPauseVideo.ahk", "Send, {Space}");
 
-            // "Send, " was cut off, so add it back
+                // "Send, " was cut off, so add it back
             clearFileAndWrite(@"helper/TakeScreenshotWithShareX.ahk", send + txtTakeScreenshot.Text);
             clearFileAndWrite(@"helper/ToggleRecordAudioWithShareX.ahk", send + txtToggleRecordAudio.Text);
             clearFileAndWrite(@"helper/ActivateDitto.ahk", send + txtActivateDitto.Text);
@@ -104,8 +105,21 @@ namespace AnkiAudioSentenceCardScript
             clearFileAndWrite(@"helper/delayGeneral.txt", txtGeneralDelay.Text);
             clearFileAndWrite(@"helper/delayForRecordingToStart.txt", txtDelayForRecordingToStart.Text);
 
+            // runs scripts
+            openAllScripts();
+            
 
             btnSave.Enabled = false;
+        }
+        public void startAutohotkeyScript(String s)
+        {
+            System.Diagnostics.Process process = new System.Diagnostics.Process();
+            System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo();
+            startInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
+            startInfo.FileName = "cmd.exe";
+            startInfo.Arguments = "/C \"" + s + "\"";
+            process.StartInfo = startInfo;
+            process.Start();
         }
         public static void clearFileAndWrite(string address, string text)
         {
@@ -203,6 +217,58 @@ namespace AnkiAudioSentenceCardScript
         {
             ProcessStartInfo sInfo = new ProcessStartInfo("https://www.autohotkey.com/docs/v2/Hotkeys.htm#Symbols");
             Process.Start(sInfo);
+        }
+
+        private void btnOpenTakeScreenshotAndRecordAudioWithShareX_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void btnPasteScreenshotAndAudioWithDitto_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void btnPasteMultipleScreenshotsWithDitto_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void openAllScripts()
+        {
+            startAutohotkeyScript("TakeScreenshotAndRecordAudioWithShareX.ahk");
+            startAutohotkeyScript("PasteImageAndAudioWithDitto.ahk");
+            startAutohotkeyScript("PasteMultipleImagesWithDitto.ahk");
+        }
+
+        private void btnOpenAllScripts_Click(object sender, EventArgs e)
+        {
+            openAllScripts();
+        }
+
+        private void btnCloseAllScripts_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process process = new System.Diagnostics.Process();
+            System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo();
+            startInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
+            startInfo.FileName = "cmd.exe";
+            startInfo.Arguments = "/C taskkill /im \"autohotkey.exe\"";
+            process.StartInfo = startInfo;
+            process.Start();
+        }
+
+        private void btnOpenCropMarginCalculatorForShareX_Click_1(object sender, EventArgs e)
+        {
+            // startAutohotkeyScript("CropMarginCalculatorForShareXRuler.ahk");
+            Form form = new CropMarginCalculatorForShareX();
+            form.ShowDialog();
+            /*
+            if (ResetToDefaultConfirmation.resetWasClicked)
+            {
+                load();
+                save();
+            }
+            */
         }
     }
 }

@@ -13,14 +13,6 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 FileRead, delayGeneral, helper\delayGeneral.txt
 FileRead, whenToTakeScreenshotWithShareX, helper\whenToTakeScreenshotWithShareX.txt
 FileRead, hotkeyForPasteImageAndAudioFromDitto, helper\hotkeyForPasteImageAndAudioFromDitto.txt
-FileRead, shouldPasteImageBeforeAudio, helper\shouldPasteImageBeforeAudio.txt
-PasteImageThenAudio() {
-    
-}
-PasteAudioThenImage() {
-
-}
-
 Hotkey,%hotkeyForPasteImageAndAudioFromDitto%,Button
 Return
 Button:
@@ -29,7 +21,6 @@ Sleep, delayGeneral
 if (whenToTakeScreenshotWithShareX = 0) {
     ; if screenshot is taken at beginning (meaning it is copied 1st, and recording is copied 2nd)
     
-    ; paste image then audio
     Loop, 2 {
         if (A_Index = 2) {
             Send, {Right}
@@ -47,7 +38,6 @@ if (whenToTakeScreenshotWithShareX = 0) {
 } else if (whenToTakeScreenshotWithShareX = 1) {
     ; if screenshot is taken at end (meaning it is copied 2nd, and recording is copied 1st)
 
-    ; paste image then audio
     Loop, 2 {
         Run, helper\ActivateDitto.ahk
         Sleep, delayGeneral
