@@ -37,7 +37,10 @@ namespace AnkiAudioSentenceCardScript
             Form1.clearFileAndWrite(@"helper/ActivateDitto.ahk", Form1.send + "^+!d");
             Form1.clearFileAndWrite(@"helper/PlayPauseVideo.ahk", Form1.send + "{Space}");
 
-            Form1.clearFileAndWrite(@"helper/isRecording.txt", "0");
+            Form1.clearFileAndWrite(@"helper/isRecordingAudio.txt", "0");
+            
+            Form1.clearFileAndWrite(@"helper/delayGeneral.txt", "250");
+            Form1.clearFileAndWrite(@"helper/delayForRecordingToStart.txt", "250");
 
             this.Close();
         }

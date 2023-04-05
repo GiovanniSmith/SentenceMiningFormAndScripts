@@ -117,4 +117,13 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="label6.Text" xml:space="preserve">
+    <value>This application changes the text file variables that three AutoHotkey scripts use to function properly.
+First, please consult the read me file to correctly set up ShareX and Ditto, and to delve deeper into
+further information on the usage of this application.
+
+Take note that normal keys are lowercase, while function keys are uppercase.
+
+Ctrl: ^     Alt: !     Shift: +     which means     ^g is Ctrl G     ^!u is Ctrl Alt U     ^!+F3 is Ctrl Alt Shift F3</value>
+  </data>
 </root>

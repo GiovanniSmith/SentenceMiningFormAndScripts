@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="lblConfirmation.Text" xml:space="preserve">
-    <value>Are you sure you want to reset the current hotkeys
+    <value>Are you sure you want to reset the current settings
 to the default values? You may have to change the
 hotkeys in ShareX and Ditto as well. Additionally,
 ensure that ShareX is currently not recording audio.</value>

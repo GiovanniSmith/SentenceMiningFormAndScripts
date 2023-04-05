@@ -29,6 +29,20 @@ namespace AnkiAudioSentenceCardScript
         private void Form1_Load(object sender, EventArgs e)
         {
             load();
+
+            // https://stackoverflow.com/questions/1339524/how-do-i-add-a-tooltip-to-a-control#1339533
+            ToolTip toolTip = new ToolTip();
+            // Set up the delays for the ToolTip.
+            toolTip.AutoPopDelay = 5000;
+            toolTip.InitialDelay = 500;
+            toolTip.ReshowDelay = 500;
+            // Force the ToolTip text to be displayed whether or not the form is active.
+            toolTip.ShowAlways = true;
+
+            // Set up the ToolTip text
+            toolTip.SetToolTip(this.grpPrimaryScriptHotkeys, "Hotkeys that the user presses");
+            toolTip.SetToolTip(this.grpSecondaryScriptHotkeys, "Hotkeys that the script presses");
+            toolTip.SetToolTip(this.grpDelays, "Programs need delays between actions so that they function correctly");
         }
 
         private void load()
@@ -44,15 +58,18 @@ namespace AnkiAudioSentenceCardScript
             else if (File.ReadAllText(@"helper/whenToTakeScreenshotWithShareX.txt").Substring(0, 1).Equals("2"))
                 radNoScreenshot.Checked = true;
 
+            if (File.ReadAllText(@"helper/PlayPauseVideo.ahk").Substring(0, 10).Equals("MouseClick"))
+                radLeftMouse.Checked = true;
+            else if (File.ReadAllText(@"helper/PlayPauseVideo.ahk").Substring(0, 13).Equals("Send, {Space}"))
+                radSpaceBar.Checked = true;
+
             // Files contain "Send, " at beginning, so cut it off
             txtTakeScreenshot.Text = File.ReadAllText(@"helper/TakeScreenshotWithShareX.ahk").Substring(send.Length);
             txtToggleRecordAudio.Text = File.ReadAllText(@"helper/ToggleRecordAudioWithShareX.ahk").Substring(send.Length);
             txtActivateDitto.Text = File.ReadAllText(@"helper/ActivateDitto.ahk").Substring(send.Length);
 
-            if (File.ReadAllText(@"helper/PlayPauseVideo.ahk").Substring(0, 10).Equals("MouseClick"))
-                radLeftMouse.Checked = true;
-            else if (File.ReadAllText(@"helper/PlayPauseVideo.ahk").Substring(0, 13).Equals("Send, {Space}"))
-                radSpaceBar.Checked = true;
+            txtGeneralDelay.Text = File.ReadAllText(@"helper/delayGeneral.txt");
+            txtDelayForRecordingToStart.Text = File.ReadAllText(@"helper/delayForRecordingToStart.txt");
 
             btnSave.Enabled = false;
         }
@@ -73,16 +90,20 @@ namespace AnkiAudioSentenceCardScript
                 clearFileAndWrite(@"helper/whenToTakeScreenshotWithShareX.txt", "1");
             else if (radNoScreenshot.Checked)
                 clearFileAndWrite(@"helper/whenToTakeScreenshotWithShareX.txt", "2");
-            
-            // "Send, " was cut off, so add it back
-            clearFileAndWrite(@"helper/TakeScreenshotWithShareX.ahk", send + txtTakeScreenshot.Text);
-            clearFileAndWrite(@"helper/ToggleRecordAudioWithShareX.ahk", send + txtToggleRecordAudio.Text);
-            clearFileAndWrite(@"helper/ActivateDitto.ahk", send + txtActivateDitto.Text);
 
             if (radLeftMouse.Checked)
                 clearFileAndWrite(@"helper/PlayPauseVideo.ahk", "MouseClick, left");
             else if (radSpaceBar.Checked)
                 clearFileAndWrite(@"helper/PlayPauseVideo.ahk", "Send, {Space}");
+
+            // "Send, " was cut off, so add it back
+            clearFileAndWrite(@"helper/TakeScreenshotWithShareX.ahk", send + txtTakeScreenshot.Text);
+            clearFileAndWrite(@"helper/ToggleRecordAudioWithShareX.ahk", send + txtToggleRecordAudio.Text);
+            clearFileAndWrite(@"helper/ActivateDitto.ahk", send + txtActivateDitto.Text);
+
+            clearFileAndWrite(@"helper/delayGeneral.txt", txtGeneralDelay.Text);
+            clearFileAndWrite(@"helper/delayForRecordingToStart.txt", txtDelayForRecordingToStart.Text);
+
 
             btnSave.Enabled = false;
         }
@@ -111,7 +132,6 @@ namespace AnkiAudioSentenceCardScript
                 load();
                 save();
             }
-                
         }
 
         private void txtTakeScreenshotAndRecordAudioWithShareX_TextChanged(object sender, EventArgs e)
@@ -167,6 +187,22 @@ namespace AnkiAudioSentenceCardScript
         private void radLeftMouse_CheckedChanged(object sender, EventArgs e)
         {
             btnSave.Enabled = true;
+        }
+
+        private void txtGeneralDelay_TextChanged(object sender, EventArgs e)
+        {
+            btnSave.Enabled = true;
+        }
+
+        private void txtDelayForRecordingToStart_TextChanged(object sender, EventArgs e)
+        {
+            btnSave.Enabled = true;
+        }
+
+        private void linkLblAutoHotkeyWebsite_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            ProcessStartInfo sInfo = new ProcessStartInfo("https://www.autohotkey.com/docs/v2/Hotkeys.htm#Symbols");
+            Process.Start(sInfo);
         }
     }
 }
