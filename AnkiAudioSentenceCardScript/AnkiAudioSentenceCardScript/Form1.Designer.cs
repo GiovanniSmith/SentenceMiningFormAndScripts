@@ -49,7 +49,6 @@
             this.txtActivateDitto = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.btnOpenCropMarginCalculatorForShareX = new System.Windows.Forms.Button();
             this.txtToggleRecordAudio = new System.Windows.Forms.TextBox();
             this.txtTakeScreenshot = new System.Windows.Forms.TextBox();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
@@ -235,7 +234,7 @@
             this.grpSecondaryScriptHotkeys.Controls.Add(this.groupBox6);
             this.grpSecondaryScriptHotkeys.Location = new System.Drawing.Point(47, 256);
             this.grpSecondaryScriptHotkeys.Name = "grpSecondaryScriptHotkeys";
-            this.grpSecondaryScriptHotkeys.Size = new System.Drawing.Size(400, 269);
+            this.grpSecondaryScriptHotkeys.Size = new System.Drawing.Size(400, 238);
             this.grpSecondaryScriptHotkeys.TabIndex = 3;
             this.grpSecondaryScriptHotkeys.TabStop = false;
             this.grpSecondaryScriptHotkeys.Text = "Secondary script hotkeys";
@@ -244,7 +243,7 @@
             // 
             this.groupBox5.Controls.Add(this.txtActivateDitto);
             this.groupBox5.Controls.Add(this.label3);
-            this.groupBox5.Location = new System.Drawing.Point(6, 167);
+            this.groupBox5.Location = new System.Drawing.Point(6, 139);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(388, 45);
             this.groupBox5.TabIndex = 1;
@@ -270,7 +269,6 @@
             // 
             // groupBox4
             // 
-            this.groupBox4.Controls.Add(this.btnOpenCropMarginCalculatorForShareX);
             this.groupBox4.Controls.Add(this.txtToggleRecordAudio);
             this.groupBox4.Controls.Add(this.txtTakeScreenshot);
             this.groupBox4.Controls.Add(this.label1);
@@ -278,20 +276,10 @@
             this.groupBox4.Controls.Add(this.label2);
             this.groupBox4.Location = new System.Drawing.Point(6, 19);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(388, 146);
+            this.groupBox4.Size = new System.Drawing.Size(388, 118);
             this.groupBox4.TabIndex = 0;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "ShareX";
-            // 
-            // btnOpenCropMarginCalculatorForShareX
-            // 
-            this.btnOpenCropMarginCalculatorForShareX.Location = new System.Drawing.Point(86, 116);
-            this.btnOpenCropMarginCalculatorForShareX.Name = "btnOpenCropMarginCalculatorForShareX";
-            this.btnOpenCropMarginCalculatorForShareX.Size = new System.Drawing.Size(209, 23);
-            this.btnOpenCropMarginCalculatorForShareX.TabIndex = 5;
-            this.btnOpenCropMarginCalculatorForShareX.Text = "Open crop margin calculator for ShareX";
-            this.btnOpenCropMarginCalculatorForShareX.UseVisualStyleBackColor = true;
-            this.btnOpenCropMarginCalculatorForShareX.Click += new System.EventHandler(this.btnOpenCropMarginCalculatorForShareX_Click_1);
             // 
             // txtToggleRecordAudio
             // 
@@ -313,7 +301,7 @@
             // 
             this.groupBox6.Controls.Add(this.radLeftMouse);
             this.groupBox6.Controls.Add(this.radSpaceBar);
-            this.groupBox6.Location = new System.Drawing.Point(6, 215);
+            this.groupBox6.Location = new System.Drawing.Point(6, 185);
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.Size = new System.Drawing.Size(388, 48);
             this.groupBox6.TabIndex = 2;
@@ -346,7 +334,7 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(38, 613);
+            this.btnSave.Location = new System.Drawing.Point(38, 583);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(204, 23);
             this.btnSave.TabIndex = 5;
@@ -356,7 +344,7 @@
             // 
             // btnReset
             // 
-            this.btnReset.Location = new System.Drawing.Point(323, 613);
+            this.btnReset.Location = new System.Drawing.Point(323, 583);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(133, 23);
             this.btnReset.TabIndex = 7;
@@ -376,7 +364,7 @@
             // 
             // btnClose
             // 
-            this.btnClose.Location = new System.Drawing.Point(248, 613);
+            this.btnClose.Location = new System.Drawing.Point(248, 583);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(69, 23);
             this.btnClose.TabIndex = 6;
@@ -424,7 +412,7 @@
             this.grpDelays.Controls.Add(this.lblDelayForRecordingToStart);
             this.grpDelays.Controls.Add(this.lblGeneralDelay);
             this.grpDelays.Controls.Add(this.txtDelayForRecordingToStart);
-            this.grpDelays.Location = new System.Drawing.Point(47, 528);
+            this.grpDelays.Location = new System.Drawing.Point(47, 495);
             this.grpDelays.Name = "grpDelays";
             this.grpDelays.Size = new System.Drawing.Size(400, 73);
             this.grpDelays.TabIndex = 4;
@@ -448,7 +436,7 @@
             this.AcceptButton = this.btnSave;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(498, 655);
+            this.ClientSize = new System.Drawing.Size(498, 621);
             this.Controls.Add(this.linkLblAutoHotkeyWebsite);
             this.Controls.Add(this.grpDelays);
             this.Controls.Add(this.btnClose);
@@ -517,7 +505,6 @@
         private System.Windows.Forms.LinkLabel linkLblAutoHotkeyWebsite;
         private System.Windows.Forms.Button btnCloseAllScripts;
         private System.Windows.Forms.Button btnOpenAllScripts;
-        private System.Windows.Forms.Button btnOpenCropMarginCalculatorForShareX;
     }
 }
 
