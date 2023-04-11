@@ -445,10 +445,10 @@
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.grpSecondaryScriptHotkeys);
             this.Controls.Add(this.grpPrimaryScriptHotkeys);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
-            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Options for Giovanni Smith\'s sentence mining scripts";
+            this.Text = "Sentence mining scripts options by Giovanni Smith";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

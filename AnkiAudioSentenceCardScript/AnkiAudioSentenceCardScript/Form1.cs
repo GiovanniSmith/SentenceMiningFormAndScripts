@@ -241,7 +241,7 @@ namespace AnkiAudioSentenceCardScript
             startAutohotkeyScript("PasteMultipleImagesWithDitto.ahk");
         }
 
-        public static void closeAllScripts()
+        public static void closeAllScriptsWindows10()
         {
             System.Diagnostics.Process process = new System.Diagnostics.Process();
             System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo();
@@ -252,6 +252,20 @@ namespace AnkiAudioSentenceCardScript
             process.Start();
         }
 
+        public static void closeAllScriptsWindows11()
+        {
+            System.Diagnostics.Process process = new System.Diagnostics.Process();
+            System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo();
+            startInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
+            startInfo.FileName = "cmd.exe";
+            startInfo.Arguments = "/C taskkill /im \"autohotkeyu64.exe\"";
+            process.StartInfo = startInfo;
+            process.Start();
+        }
+        public static void closeAllScripts()
+        {
+            
+        }
         private void btnOpenAllScripts_Click(object sender, EventArgs e)
         {
             openAllScripts();
@@ -259,13 +273,19 @@ namespace AnkiAudioSentenceCardScript
 
         private void btnCloseAllScripts_Click(object sender, EventArgs e)
         {
-            closeAllScripts();
+            closeAllScriptsWindows10();
+            closeAllScriptsWindows11();
         }
 
         private void btnOpenCropMarginCalculatorForShareX_Click_1(object sender, EventArgs e)
         {
             Form form = new CropMarginCalculatorForShareX();
             form.ShowDialog();
+        }
+
+        private void vScrollBar1_Scroll(object sender, ScrollEventArgs e)
+        {
+
         }
     }
 }
