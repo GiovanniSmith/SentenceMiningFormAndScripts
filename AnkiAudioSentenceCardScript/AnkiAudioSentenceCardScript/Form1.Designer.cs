@@ -192,35 +192,37 @@
             // 
             // grpPrimaryScriptHotkeys
             // 
+            this.grpPrimaryScriptHotkeys.Controls.Add(this.btnCloseAllScripts);
+            this.grpPrimaryScriptHotkeys.Controls.Add(this.btnOpenAllScripts);
             this.grpPrimaryScriptHotkeys.Controls.Add(this.lblPasteMultipleImagesFromDitto);
             this.grpPrimaryScriptHotkeys.Controls.Add(this.txtTakeScreenshotAndRecordAudioWithShareX);
             this.grpPrimaryScriptHotkeys.Controls.Add(this.txtPasteImageAndAudioFromDitto);
             this.grpPrimaryScriptHotkeys.Controls.Add(this.txtPasteMultipleImagesFromDitto);
             this.grpPrimaryScriptHotkeys.Controls.Add(this.lblTakeScreenshotAndRecordAudioWithShareX);
             this.grpPrimaryScriptHotkeys.Controls.Add(this.lbPasteImageAndAudioFromDitto);
-            this.grpPrimaryScriptHotkeys.Location = new System.Drawing.Point(47, 105);
+            this.grpPrimaryScriptHotkeys.Location = new System.Drawing.Point(47, 131);
             this.grpPrimaryScriptHotkeys.Name = "grpPrimaryScriptHotkeys";
-            this.grpPrimaryScriptHotkeys.Size = new System.Drawing.Size(400, 91);
+            this.grpPrimaryScriptHotkeys.Size = new System.Drawing.Size(400, 123);
             this.grpPrimaryScriptHotkeys.TabIndex = 2;
             this.grpPrimaryScriptHotkeys.TabStop = false;
             this.grpPrimaryScriptHotkeys.Text = "Primary script hotkeys";
             // 
             // btnCloseAllScripts
             // 
-            this.btnCloseAllScripts.Location = new System.Drawing.Point(251, 524);
+            this.btnCloseAllScripts.Location = new System.Drawing.Point(203, 92);
             this.btnCloseAllScripts.Name = "btnCloseAllScripts";
             this.btnCloseAllScripts.Size = new System.Drawing.Size(87, 23);
-            this.btnCloseAllScripts.TabIndex = 6;
+            this.btnCloseAllScripts.TabIndex = 7;
             this.btnCloseAllScripts.Text = "Close all scripts";
             this.btnCloseAllScripts.UseVisualStyleBackColor = true;
             this.btnCloseAllScripts.Click += new System.EventHandler(this.btnCloseAllScripts_Click);
             // 
             // btnOpenAllScripts
             // 
-            this.btnOpenAllScripts.Location = new System.Drawing.Point(158, 524);
+            this.btnOpenAllScripts.Location = new System.Drawing.Point(110, 92);
             this.btnOpenAllScripts.Name = "btnOpenAllScripts";
             this.btnOpenAllScripts.Size = new System.Drawing.Size(87, 23);
-            this.btnOpenAllScripts.TabIndex = 5;
+            this.btnOpenAllScripts.TabIndex = 6;
             this.btnOpenAllScripts.Text = "Open all scripts";
             this.btnOpenAllScripts.UseVisualStyleBackColor = true;
             this.btnOpenAllScripts.Click += new System.EventHandler(this.btnOpenAllScripts_Click);
@@ -230,7 +232,7 @@
             this.grpSecondaryScriptHotkeys.Controls.Add(this.groupBox5);
             this.grpSecondaryScriptHotkeys.Controls.Add(this.groupBox4);
             this.grpSecondaryScriptHotkeys.Controls.Add(this.groupBox6);
-            this.grpSecondaryScriptHotkeys.Location = new System.Drawing.Point(47, 198);
+            this.grpSecondaryScriptHotkeys.Location = new System.Drawing.Point(47, 256);
             this.grpSecondaryScriptHotkeys.Name = "grpSecondaryScriptHotkeys";
             this.grpSecondaryScriptHotkeys.Size = new System.Drawing.Size(400, 238);
             this.grpSecondaryScriptHotkeys.TabIndex = 3;
@@ -332,20 +334,20 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(37, 557);
+            this.btnSave.Location = new System.Drawing.Point(38, 583);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(204, 23);
-            this.btnSave.TabIndex = 7;
+            this.btnSave.TabIndex = 5;
             this.btnSave.Text = "Save changes and open/reload scripts";
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnReset
             // 
-            this.btnReset.Location = new System.Drawing.Point(322, 557);
+            this.btnReset.Location = new System.Drawing.Point(323, 583);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(133, 23);
-            this.btnReset.TabIndex = 9;
+            this.btnReset.TabIndex = 7;
             this.btnReset.Text = "Reset to default settings";
             this.btnReset.UseVisualStyleBackColor = true;
             this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
@@ -355,17 +357,17 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(9, 9);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(480, 65);
+            this.label6.Size = new System.Drawing.Size(480, 91);
             this.label6.TabIndex = 0;
             this.label6.Text = resources.GetString("label6.Text");
             this.label6.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // btnClose
             // 
-            this.btnClose.Location = new System.Drawing.Point(247, 557);
+            this.btnClose.Location = new System.Drawing.Point(248, 583);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(69, 23);
-            this.btnClose.TabIndex = 8;
+            this.btnClose.TabIndex = 6;
             this.btnClose.Text = "Exit";
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
@@ -410,7 +412,7 @@
             this.grpDelays.Controls.Add(this.lblDelayForRecordingToStart);
             this.grpDelays.Controls.Add(this.lblGeneralDelay);
             this.grpDelays.Controls.Add(this.txtDelayForRecordingToStart);
-            this.grpDelays.Location = new System.Drawing.Point(47, 437);
+            this.grpDelays.Location = new System.Drawing.Point(47, 495);
             this.grpDelays.Name = "grpDelays";
             this.grpDelays.Size = new System.Drawing.Size(400, 73);
             this.grpDelays.TabIndex = 4;
@@ -420,7 +422,7 @@
             // linkLblAutoHotkeyWebsite
             // 
             this.linkLblAutoHotkeyWebsite.AutoSize = true;
-            this.linkLblAutoHotkeyWebsite.Location = new System.Drawing.Point(12, 82);
+            this.linkLblAutoHotkeyWebsite.Location = new System.Drawing.Point(12, 108);
             this.linkLblAutoHotkeyWebsite.Name = "linkLblAutoHotkeyWebsite";
             this.linkLblAutoHotkeyWebsite.Size = new System.Drawing.Size(474, 13);
             this.linkLblAutoHotkeyWebsite.TabIndex = 1;
@@ -434,11 +436,8 @@
             this.AcceptButton = this.btnSave;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(498, 595);
-            this.Controls.Add(this.btnCloseAllScripts);
+            this.ClientSize = new System.Drawing.Size(498, 621);
             this.Controls.Add(this.linkLblAutoHotkeyWebsite);
-            this.Controls.Add(this.btnOpenAllScripts);
             this.Controls.Add(this.grpDelays);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.label6);
@@ -449,7 +448,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Giovanni Smith\'s Control Panel for Sentence Mining Scripts";
+            this.Text = "Sentence mining scripts options by Giovanni Smith";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

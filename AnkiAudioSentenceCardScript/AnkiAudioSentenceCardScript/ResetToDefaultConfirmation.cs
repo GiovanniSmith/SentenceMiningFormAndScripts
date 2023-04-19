@@ -32,15 +32,15 @@ namespace AnkiAudioSentenceCardScript
             Form1.clearFileAndWrite(@"helper/hotkeyForPasteImageAndAudioFromDitto.txt", "^+F2");
             Form1.clearFileAndWrite(@"helper/hotkeyForPasteMultipleImagesFromDitto.txt", "^+F3");
             Form1.clearFileAndWrite(@"helper/whenToTakeScreenshotWithShareX.txt", "0");
-            Form1.clearFileAndWrite(@"helper/TakeScreenshotWithShareX.ahk", Form1.send + "^!s");
-            Form1.clearFileAndWrite(@"helper/ToggleRecordAudioWithShareX.ahk", Form1.send + "^!r");
+            Form1.clearFileAndWrite(@"helper/TakeScreenshotWithShareX.ahk", Form1.send + "^!r");
+            Form1.clearFileAndWrite(@"helper/ToggleRecordAudioWithShareX.ahk", Form1.send + "^!f");
             Form1.clearFileAndWrite(@"helper/ActivateDitto.ahk", Form1.send + "^+!d");
-            Form1.clearFileAndWrite(@"helper/PlayPauseVideo.ahk", "MouseClick, left");
+            Form1.clearFileAndWrite(@"helper/PlayPauseVideo.ahk", Form1.send + "{Space}");
 
             Form1.clearFileAndWrite(@"helper/isRecordingAudio.txt", "0");
             
             Form1.clearFileAndWrite(@"helper/delayGeneral.txt", "250");
-            Form1.clearFileAndWrite(@"helper/delayForRecordingToStart.txt", "300");
+            Form1.clearFileAndWrite(@"helper/delayForRecordingToStart.txt", "250");
 
             Form1.closeAllScripts();
 
