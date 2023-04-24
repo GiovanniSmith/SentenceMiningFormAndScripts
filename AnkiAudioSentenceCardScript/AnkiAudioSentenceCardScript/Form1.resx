@@ -119,8 +119,6 @@
   </resheader>
   <data name="label6.Text" xml:space="preserve">
     <value>This application changes the text file variables that three AutoHotkey scripts use to function properly.
-First, please consult the read me file to delve deeper into
-further information on the usage of this application.
 
 Take note that normal keys are lowercase, while function keys are uppercase.
 

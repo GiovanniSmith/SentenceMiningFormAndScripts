@@ -1,1 +1,1 @@
-Send, ^!f
+Send, ^!r
