@@ -34,3 +34,4 @@ C:\Users\Angela Smith\Documents\Code\Sentence mining script\AnkiAudioSentenceCar
 C:\Users\Angela Smith\Documents\Code\Sentence mining script\AnkiAudioSentenceCardScript\AnkiAudioSentenceCardScript\obj\Debug\AnkiAudioSentenceCardScript.exe
 C:\Users\Angela Smith\Documents\Code\Sentence mining script\AnkiAudioSentenceCardScript\AnkiAudioSentenceCardScript\obj\Debug\AnkiAudioSentenceCardScript.pdb
 C:\Users\Angela Smith\Documents\Code\Sentence mining script\AnkiAudioSentenceCardScript\AnkiAudioSentenceCardScript\obj\Debug\AnkiAudioSentenceCardScript.CropMarginCalculatorForShareX.resources
+C:\Users\Angela Smith\Documents\Code\Sentence mining script\AnkiAudioSentenceCardScript\AnkiAudioSentenceCardScript\obj\Debug\AnkiAudioSentenceCardScript.ResetIsRecording.resources

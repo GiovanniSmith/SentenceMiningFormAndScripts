@@ -42,6 +42,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.grpPrimaryScriptHotkeys = new System.Windows.Forms.GroupBox();
+            this.lblIsRecording = new System.Windows.Forms.Label();
+            this.txtIsRecording = new System.Windows.Forms.TextBox();
             this.btnCloseAllScripts = new System.Windows.Forms.Button();
             this.btnOpenAllScripts = new System.Windows.Forms.Button();
             this.grpSecondaryScriptHotkeys = new System.Windows.Forms.GroupBox();
@@ -64,6 +66,7 @@
             this.lblDelayForRecordingToStart = new System.Windows.Forms.Label();
             this.grpDelays = new System.Windows.Forms.GroupBox();
             this.linkLblAutoHotkeyWebsite = new System.Windows.Forms.LinkLabel();
+            this.btnResetIsRecording = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.grpPrimaryScriptHotkeys.SuspendLayout();
             this.grpSecondaryScriptHotkeys.SuspendLayout();
@@ -192,35 +195,55 @@
             // 
             // grpPrimaryScriptHotkeys
             // 
+            this.grpPrimaryScriptHotkeys.Controls.Add(this.lblIsRecording);
+            this.grpPrimaryScriptHotkeys.Controls.Add(this.txtIsRecording);
             this.grpPrimaryScriptHotkeys.Controls.Add(this.lblPasteMultipleImagesFromDitto);
+            this.grpPrimaryScriptHotkeys.Controls.Add(this.btnResetIsRecording);
             this.grpPrimaryScriptHotkeys.Controls.Add(this.txtTakeScreenshotAndRecordAudioWithShareX);
             this.grpPrimaryScriptHotkeys.Controls.Add(this.txtPasteImageAndAudioFromDitto);
             this.grpPrimaryScriptHotkeys.Controls.Add(this.txtPasteMultipleImagesFromDitto);
             this.grpPrimaryScriptHotkeys.Controls.Add(this.lblTakeScreenshotAndRecordAudioWithShareX);
             this.grpPrimaryScriptHotkeys.Controls.Add(this.lbPasteImageAndAudioFromDitto);
-            this.grpPrimaryScriptHotkeys.Location = new System.Drawing.Point(47, 105);
+            this.grpPrimaryScriptHotkeys.Location = new System.Drawing.Point(49, 99);
             this.grpPrimaryScriptHotkeys.Name = "grpPrimaryScriptHotkeys";
-            this.grpPrimaryScriptHotkeys.Size = new System.Drawing.Size(400, 91);
+            this.grpPrimaryScriptHotkeys.Size = new System.Drawing.Size(400, 116);
             this.grpPrimaryScriptHotkeys.TabIndex = 2;
             this.grpPrimaryScriptHotkeys.TabStop = false;
             this.grpPrimaryScriptHotkeys.Text = "Primary script hotkeys";
             // 
+            // lblIsRecording
+            // 
+            this.lblIsRecording.AutoSize = true;
+            this.lblIsRecording.Location = new System.Drawing.Point(19, 91);
+            this.lblIsRecording.Name = "lblIsRecording";
+            this.lblIsRecording.Size = new System.Drawing.Size(178, 13);
+            this.lblIsRecording.TabIndex = 6;
+            this.lblIsRecording.Text = "Is ShareX currently recording audio?";
+            // 
+            // txtIsRecording
+            // 
+            this.txtIsRecording.Location = new System.Drawing.Point(287, 89);
+            this.txtIsRecording.Name = "txtIsRecording";
+            this.txtIsRecording.ReadOnly = true;
+            this.txtIsRecording.Size = new System.Drawing.Size(96, 20);
+            this.txtIsRecording.TabIndex = 8;
+            // 
             // btnCloseAllScripts
             // 
-            this.btnCloseAllScripts.Location = new System.Drawing.Point(251, 524);
+            this.btnCloseAllScripts.Location = new System.Drawing.Point(351, 534);
             this.btnCloseAllScripts.Name = "btnCloseAllScripts";
-            this.btnCloseAllScripts.Size = new System.Drawing.Size(87, 23);
-            this.btnCloseAllScripts.TabIndex = 6;
+            this.btnCloseAllScripts.Size = new System.Drawing.Size(87, 25);
+            this.btnCloseAllScripts.TabIndex = 7;
             this.btnCloseAllScripts.Text = "Close all scripts";
             this.btnCloseAllScripts.UseVisualStyleBackColor = true;
             this.btnCloseAllScripts.Click += new System.EventHandler(this.btnCloseAllScripts_Click);
             // 
             // btnOpenAllScripts
             // 
-            this.btnOpenAllScripts.Location = new System.Drawing.Point(158, 524);
+            this.btnOpenAllScripts.Location = new System.Drawing.Point(261, 534);
             this.btnOpenAllScripts.Name = "btnOpenAllScripts";
-            this.btnOpenAllScripts.Size = new System.Drawing.Size(87, 23);
-            this.btnOpenAllScripts.TabIndex = 5;
+            this.btnOpenAllScripts.Size = new System.Drawing.Size(87, 25);
+            this.btnOpenAllScripts.TabIndex = 6;
             this.btnOpenAllScripts.Text = "Open all scripts";
             this.btnOpenAllScripts.UseVisualStyleBackColor = true;
             this.btnOpenAllScripts.Click += new System.EventHandler(this.btnOpenAllScripts_Click);
@@ -230,7 +253,7 @@
             this.grpSecondaryScriptHotkeys.Controls.Add(this.groupBox5);
             this.grpSecondaryScriptHotkeys.Controls.Add(this.groupBox4);
             this.grpSecondaryScriptHotkeys.Controls.Add(this.groupBox6);
-            this.grpSecondaryScriptHotkeys.Location = new System.Drawing.Point(47, 198);
+            this.grpSecondaryScriptHotkeys.Location = new System.Drawing.Point(49, 218);
             this.grpSecondaryScriptHotkeys.Name = "grpSecondaryScriptHotkeys";
             this.grpSecondaryScriptHotkeys.Size = new System.Drawing.Size(400, 238);
             this.grpSecondaryScriptHotkeys.TabIndex = 3;
@@ -332,20 +355,20 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(37, 557);
+            this.btnSave.Location = new System.Drawing.Point(59, 534);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(204, 23);
-            this.btnSave.TabIndex = 7;
+            this.btnSave.Size = new System.Drawing.Size(199, 25);
+            this.btnSave.TabIndex = 5;
             this.btnSave.Text = "Save changes and open/reload scripts";
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnReset
             // 
-            this.btnReset.Location = new System.Drawing.Point(322, 557);
+            this.btnReset.Location = new System.Drawing.Point(150, 563);
             this.btnReset.Name = "btnReset";
-            this.btnReset.Size = new System.Drawing.Size(133, 23);
-            this.btnReset.TabIndex = 9;
+            this.btnReset.Size = new System.Drawing.Size(133, 25);
+            this.btnReset.TabIndex = 8;
             this.btnReset.Text = "Reset to default settings";
             this.btnReset.UseVisualStyleBackColor = true;
             this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
@@ -362,10 +385,10 @@
             // 
             // btnClose
             // 
-            this.btnClose.Location = new System.Drawing.Point(247, 557);
+            this.btnClose.Location = new System.Drawing.Point(286, 563);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(69, 23);
-            this.btnClose.TabIndex = 8;
+            this.btnClose.Size = new System.Drawing.Size(69, 25);
+            this.btnClose.TabIndex = 9;
             this.btnClose.Text = "Exit";
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
@@ -410,7 +433,7 @@
             this.grpDelays.Controls.Add(this.lblDelayForRecordingToStart);
             this.grpDelays.Controls.Add(this.lblGeneralDelay);
             this.grpDelays.Controls.Add(this.txtDelayForRecordingToStart);
-            this.grpDelays.Location = new System.Drawing.Point(47, 437);
+            this.grpDelays.Location = new System.Drawing.Point(49, 457);
             this.grpDelays.Name = "grpDelays";
             this.grpDelays.Size = new System.Drawing.Size(400, 73);
             this.grpDelays.TabIndex = 4;
@@ -429,13 +452,23 @@
     "cial documentation.";
             this.linkLblAutoHotkeyWebsite.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLblAutoHotkeyWebsite_LinkClicked);
             // 
+            // btnResetIsRecording
+            // 
+            this.btnResetIsRecording.Location = new System.Drawing.Point(239, 88);
+            this.btnResetIsRecording.Name = "btnResetIsRecording";
+            this.btnResetIsRecording.Size = new System.Drawing.Size(44, 22);
+            this.btnResetIsRecording.TabIndex = 7;
+            this.btnResetIsRecording.Text = "Reset";
+            this.btnResetIsRecording.UseVisualStyleBackColor = true;
+            this.btnResetIsRecording.Click += new System.EventHandler(this.btnResetIsRecording_Click);
+            // 
             // Form1
             // 
             this.AcceptButton = this.btnSave;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(498, 595);
+            this.ClientSize = new System.Drawing.Size(498, 594);
             this.Controls.Add(this.btnCloseAllScripts);
             this.Controls.Add(this.linkLblAutoHotkeyWebsite);
             this.Controls.Add(this.btnOpenAllScripts);
@@ -506,6 +539,9 @@
         private System.Windows.Forms.LinkLabel linkLblAutoHotkeyWebsite;
         private System.Windows.Forms.Button btnCloseAllScripts;
         private System.Windows.Forms.Button btnOpenAllScripts;
+        private System.Windows.Forms.Button btnResetIsRecording;
+        private System.Windows.Forms.Label lblIsRecording;
+        private System.Windows.Forms.TextBox txtIsRecording;
     }
 }
 

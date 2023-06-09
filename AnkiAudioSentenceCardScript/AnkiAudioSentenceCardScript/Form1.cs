@@ -10,20 +10,55 @@ using System.Windows.Forms;
 using System.IO;
 using System.Diagnostics;
 
+
 namespace AnkiAudioSentenceCardScript
 {
     public partial class Form1 : Form
     {
-        /**
-         * #SingleInstance, Force
-            SendMode Input
-            SetWorkingDir, %A_ScriptDir%
-         */
+        
+        private FileSystemWatcher fileWatcher;
+        private string filePath = @"helper/isRecordingAudio.txt";
         public static string send = "Send, ";
-
-        public Form1()
+        public Form1()// ChatGPT wrote everything in this method except for InitializeComponent()
         {
             InitializeComponent();
+            // Initialize the FileSystemWatcher
+            fileWatcher = new FileSystemWatcher(Path.GetDirectoryName(filePath), Path.GetFileName(filePath));
+            fileWatcher.NotifyFilter = NotifyFilters.LastWrite;
+            fileWatcher.Changed += fileWatcher_Changed;
+
+            // Start monitoring the file
+            fileWatcher.EnableRaisingEvents = true;
+
+            // Set the initial label value
+            UpdateLabel();
+            // ChatGPT ^^^
+        }
+        private void fileWatcher_Changed(object sender, FileSystemEventArgs e)// ChatGPT wrote this
+        {
+            if (e.ChangeType == WatcherChangeTypes.Changed)
+            {
+                // File content has changed, update the label
+                this.Invoke(new Action(UpdateLabel));
+            }
+        }
+
+        private void UpdateLabel()// ChatGPT wrote this
+        {
+            string fileContent = File.ReadAllText(filePath);
+
+            if (fileContent.Trim() == "0")
+            {
+                txtIsRecording.Text = "False";
+            }
+            else if (fileContent.Trim() == "1")
+            {
+                txtIsRecording.Text = "True";
+            }
+            else
+            {
+                txtIsRecording.Text = "Error";
+            }
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -43,6 +78,10 @@ namespace AnkiAudioSentenceCardScript
             toolTip.SetToolTip(this.grpPrimaryScriptHotkeys, "Hotkeys that the user presses");
             toolTip.SetToolTip(this.grpSecondaryScriptHotkeys, "Hotkeys that the script presses");
             toolTip.SetToolTip(this.grpDelays, "Programs need delays between actions so that they function correctly");
+            toolTip.SetToolTip(this.lblIsRecording, "Pressing the hotkey for \"Take screenshot and record audio with ShareX\" should toggle this");
+            toolTip.SetToolTip(this.txtIsRecording, "Pressing the hotkey for \"Take screenshot and record audio with ShareX\" should toggle this");
+            toolTip.SetToolTip(this.btnResetIsRecording, "If you are not recording audio with ShareX and \"Is ShareX currently recording audio?\" is \"True,\"\n" +
+                "then press this button.");
         }
 
         private void load()
@@ -71,6 +110,7 @@ namespace AnkiAudioSentenceCardScript
             txtGeneralDelay.Text = File.ReadAllText(@"helper/delayGeneral.txt");
             txtDelayForRecordingToStart.Text = File.ReadAllText(@"helper/delayForRecordingToStart.txt");
 
+            
             btnSave.Enabled = false;
         }
 
@@ -142,6 +182,16 @@ namespace AnkiAudioSentenceCardScript
             Form form = new ResetToDefaultConfirmation();
             form.ShowDialog();
             if (ResetToDefaultConfirmation.resetWasClicked)
+            {
+                load();
+                save();
+            }
+        }
+        private void btnResetIsRecording_Click(object sender, EventArgs e)
+        {
+            Form form = new ResetIsRecording();
+            form.ShowDialog();
+            if (ResetIsRecording.resetForIsRecordingWasClicked)
             {
                 load();
                 save();
