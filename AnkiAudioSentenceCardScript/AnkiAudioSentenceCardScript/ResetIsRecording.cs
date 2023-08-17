@@ -27,9 +27,7 @@ namespace AnkiAudioSentenceCardScript
         private void btnReset_Click(object sender, EventArgs e)
         {
             resetForIsRecordingWasClicked = true;
-
             Form1.clearFileAndWrite(@"helper/isRecordingAudio.txt", "0");
-
             this.Close();
         }
 

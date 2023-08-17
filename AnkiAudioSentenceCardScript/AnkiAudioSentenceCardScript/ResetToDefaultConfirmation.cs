@@ -35,15 +35,14 @@ namespace AnkiAudioSentenceCardScript
             Form1.clearFileAndWrite(@"helper/TakeScreenshotWithShareX.ahk", Form1.send + "^!s");
             Form1.clearFileAndWrite(@"helper/ToggleRecordAudioWithShareX.ahk", Form1.send + "^!r");
             Form1.clearFileAndWrite(@"helper/ActivateDitto.ahk", Form1.send + "^+!d");
+            Form1.clearFileAndWrite(@"helper/ActivateWindowsClipboard.ahk", Form1.send + "#v");
+            Form1.clearFileAndWrite(@"helper/clipboardSoftware.txt", "ditto");
             Form1.clearFileAndWrite(@"helper/PlayPauseVideo.ahk", "MouseClick, left");
-
             Form1.clearFileAndWrite(@"helper/isRecordingAudio.txt", "0");
-            
             Form1.clearFileAndWrite(@"helper/delayGeneral.txt", "250");
             Form1.clearFileAndWrite(@"helper/delayForRecordingToStart.txt", "300");
 
             Form1.closeAllScripts();
-
             this.Close();
         }
 

@@ -48,16 +48,13 @@ namespace AnkiAudioSentenceCardScript
         {
             string fileContent = File.ReadAllText(filePath);
 
-            if (fileContent.Trim() == "0")
-            {
+            if (fileContent.Trim() == "0") {
                 txtIsRecording.Text = "False";
             }
-            else if (fileContent.Trim() == "1")
-            {
+            else if (fileContent.Trim() == "1") {
                 txtIsRecording.Text = "True";
             }
-            else
-            {
+            else {
                 txtIsRecording.Text = "Error";
             }
         }
@@ -75,7 +72,7 @@ namespace AnkiAudioSentenceCardScript
             // Force the ToolTip text to be displayed whether or not the form is active.
             toolTip.ShowAlways = true;
 
-        // Set up the ToolTip text
+            // Set up the ToolTip text
             toolTip.SetToolTip(this.linkLblAutoHotkeyWebsite, "https://www.autohotkey.com/docs/v2/Hotkeys.htm#Symbols");
             toolTip.SetToolTip(this.grpPrimaryScriptHotkeys, "Hotkeys that the user presses");
             toolTip.SetToolTip(this.grpSecondaryScriptHotkeys, "Hotkeys that the script presses");
@@ -210,71 +207,19 @@ namespace AnkiAudioSentenceCardScript
             }
         }
 
-        private void txtTakeScreenshotAndRecordAudioWithShareX_TextChanged(object sender, EventArgs e)
-        {
-            btnSave.Enabled = true;
-        }
-
-        private void txtPasteImageAndAudioWithClipboardSoftware_TextChanged(object sender, EventArgs e)
-        {
-            btnSave.Enabled = true;
-        }
-
-        private void txtPasteMultipleImagesWithClipboardSoftware_TextChanged(object sender, EventArgs e)
-        {
-            btnSave.Enabled = true;
-        }
-
-        private void txtTakeScreenshot_TextChanged(object sender, EventArgs e)
-        {
-            btnSave.Enabled = true;
-        }
-
-        private void txtToggleRecordAudio_TextChanged(object sender, EventArgs e)
-        {
-            btnSave.Enabled = true;
-        }
-
-        private void radBeginning_CheckedChanged(object sender, EventArgs e)
-        {
-            btnSave.Enabled = true;
-        }
-
-        private void radEnd_CheckedChanged(object sender, EventArgs e)
-        {
-            btnSave.Enabled = true;
-        }
-
-        private void radNoScreenshot_CheckedChanged(object sender, EventArgs e)
-        {
-            btnSave.Enabled = true;
-        }
-
-        private void txtActivateClipboardSoftware_TextChanged(object sender, EventArgs e)
-        {
-            btnSave.Enabled = true;
-        }
-
-        private void radSpaceBar_CheckedChanged(object sender, EventArgs e)
-        {
-            btnSave.Enabled = true;
-        }
-
-        private void radLeftMouse_CheckedChanged(object sender, EventArgs e)
-        {
-            btnSave.Enabled = true;
-        }
-
-        private void txtGeneralDelay_TextChanged(object sender, EventArgs e)
-        {
-            btnSave.Enabled = true;
-        }
-
-        private void txtDelayForRecordingToStart_TextChanged(object sender, EventArgs e)
-        {
-            btnSave.Enabled = true;
-        }
-
+        private void txtTakeScreenshotAndRecordAudioWithShareX_TextChanged(object sender, EventArgs e) { btnSave.Enabled = true; }
+        private void txtPasteImageAndAudioWithClipboardSoftware_TextChanged(object sender, EventArgs e) { btnSave.Enabled = true; }
+        private void txtPasteMultipleImagesWithClipboardSoftware_TextChanged(object sender, EventArgs e) { btnSave.Enabled = true; }
+        private void txtTakeScreenshot_TextChanged(object sender, EventArgs e) { btnSave.Enabled = true; }
+        private void txtToggleRecordAudio_TextChanged(object sender, EventArgs e) { btnSave.Enabled = true; }
+        private void radBeginning_CheckedChanged(object sender, EventArgs e) { btnSave.Enabled = true; }
+        private void radEnd_CheckedChanged(object sender, EventArgs e) { btnSave.Enabled = true; }
+        private void radNoScreenshot_CheckedChanged(object sender, EventArgs e) { btnSave.Enabled = true; }
+        private void txtActivateClipboardSoftware_TextChanged(object sender, EventArgs e) { btnSave.Enabled = true; }
+        private void radSpaceBar_CheckedChanged(object sender, EventArgs e) { btnSave.Enabled = true; }
+        private void radLeftMouse_CheckedChanged(object sender, EventArgs e) { btnSave.Enabled = true; }
+        private void txtGeneralDelay_TextChanged(object sender, EventArgs e) { btnSave.Enabled = true; }
+        private void txtDelayForRecordingToStart_TextChanged(object sender, EventArgs e) { btnSave.Enabled = true; }
         private void linkLblAutoHotkeyWebsite_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             ProcessStartInfo sInfo = new ProcessStartInfo("https://www.autohotkey.com/docs/v2/Hotkeys.htm#Symbols");
@@ -324,18 +269,11 @@ namespace AnkiAudioSentenceCardScript
             closeAllScriptsWindows11();
         }
 
-        private void btnOpenCropMarginCalculatorForShareX_Click_1(object sender, EventArgs e)
-        {
-            Form form = new CropMarginCalculatorForShareX();
-            form.ShowDialog();
-        }
-
         private void radDitto_CheckedChanged(object sender, EventArgs e)
         {
             if (radDitto.Checked)
             {
                 txtActivateClipboardSoftware.Text = File.ReadAllText(@"helper/ActivateDitto.ahk").Substring(send.Length);
-
                 radEnd.Enabled = true;
             }
         }
@@ -345,10 +283,8 @@ namespace AnkiAudioSentenceCardScript
             if (radWindowsClipboard.Checked)
             {
                 txtActivateClipboardSoftware.Text = File.ReadAllText(@"helper/ActivateWindowsClipboard.ahk").Substring(send.Length);
-
                 disableTakeScreenshotAtBeginning();
             }
-                
         }
 
         private void disableTakeScreenshotAtBeginning()
