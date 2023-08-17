@@ -15,25 +15,24 @@ namespace AnkiAudioSentenceCardScript
 {
     public partial class Form1 : Form
     {
-        
         private FileSystemWatcher fileWatcher;
-        private string filePath = @"helper/isRecordingAudio.txt";
+        private string filePathForClipboardSoftware = @"helper/clipboardSoftware.txt";
+        private string filePathForTakeScreenshotAndRecordAudioWithShareX = @"helper/hotkeyForTakeScreenshotAndRecordAudioWithShareX.txt";
+        private string filePathForPasteImageAndAudioWithClipboardSoftware = @"helper/hotkeyForPasteImageAndAudioWithClipboardSoftware.txt";
+        private string filePathForActivateDitto = @"helper/ActivateDitto.ahk";
+        private string filePathForActivateWindowsClipboard = @"helper/ActivateWindowsClipboard.ahk";
+
+        private string filePathForIsRecordingAudio = @"helper/isRecordingAudio.txt";
         public static string send = "Send, ";
 
         public Form1()// ChatGPT wrote everything in this method except for InitializeComponent()
         {
             InitializeComponent();
-            // Initialize the FileSystemWatcher
-            fileWatcher = new FileSystemWatcher(Path.GetDirectoryName(filePath), Path.GetFileName(filePath));
+            fileWatcher = new FileSystemWatcher(Path.GetDirectoryName(filePathForIsRecordingAudio), Path.GetFileName(filePathForIsRecordingAudio));
             fileWatcher.NotifyFilter = NotifyFilters.LastWrite;
             fileWatcher.Changed += fileWatcher_Changed;
-
-            // Start monitoring the file
             fileWatcher.EnableRaisingEvents = true;
-
-            // Set the initial label value
             UpdateLabel();
-            // ChatGPT ^^^
         }
         private void fileWatcher_Changed(object sender, FileSystemEventArgs e)// ChatGPT wrote this
         {
@@ -46,7 +45,7 @@ namespace AnkiAudioSentenceCardScript
 
         private void UpdateLabel()// ChatGPT wrote this
         {
-            string fileContent = File.ReadAllText(filePath);
+            string fileContent = File.ReadAllText(filePathForIsRecordingAudio);
 
             if (fileContent.Trim() == "0") {
                 txtIsRecording.Text = "False";
@@ -62,17 +61,20 @@ namespace AnkiAudioSentenceCardScript
         private void Form1_Load(object sender, EventArgs e)
         {
             load();
-
-            // https://stackoverflow.com/questions/1339524/how-do-i-add-a-tooltip-to-a-control#1339533
             ToolTip toolTip = new ToolTip();
-            // Set up the delays for the ToolTip.
+            setToolTipProperties(toolTip);
+            setToolTipTexts(toolTip);
+        }
+        private void setToolTipProperties(ToolTip toolTip)
+        {
+            // https://stackoverflow.com/questions/1339524/how-do-i-add-a-tooltip-to-a-control#1339533
             toolTip.AutoPopDelay = 5000;
             toolTip.InitialDelay = 500;
             toolTip.ReshowDelay = 500;
-            // Force the ToolTip text to be displayed whether or not the form is active.
             toolTip.ShowAlways = true;
-
-            // Set up the ToolTip text
+        }
+        private void setToolTipTexts(ToolTip toolTip)
+        {
             toolTip.SetToolTip(this.linkLblAutoHotkeyWebsite, "https://www.autohotkey.com/docs/v2/Hotkeys.htm#Symbols");
             toolTip.SetToolTip(this.grpPrimaryScriptHotkeys, "Hotkeys that the user presses");
             toolTip.SetToolTip(this.grpSecondaryScriptHotkeys, "Hotkeys that the script presses");
@@ -85,10 +87,34 @@ namespace AnkiAudioSentenceCardScript
 
         private void load()
         {
-            txtTakeScreenshotAndRecordAudioWithShareX.Text = File.ReadAllText(@"helper/hotkeyForTakeScreenshotAndRecordAudioWithShareX.txt");
-            txtPasteImageAndAudioWithClipboardSoftware.Text = File.ReadAllText(@"helper/hotkeyForPasteImageAndAudioWithClipboardSoftware.txt");
-            txtPasteMultipleImagesWithClipboardSoftware.Text = File.ReadAllText(@"helper/hotkeyForPasteMultipleImagesWithClipboardSoftware.txt");
+            fillTextBoxesWithInfoFromFiles();
+            selectRadioButtonsFromInfoFromFiles();
 
+            if (doesTextInFileEqualValue(filePathForClipboardSoftware, "ditto"))
+            {
+                radDitto.Checked = true;
+                txtActivateClipboardSoftware.Text = readOnlyTheHotkeyOfDotAHKFile(filePathForActivateDitto);
+            } else
+            {
+                radWindowsClipboard.Checked = true;
+                txtActivateClipboardSoftware.Text = readOnlyTheHotkeyOfDotAHKFile(filePathForActivateWindowsClipboard);
+            }
+
+            btnSave.Enabled = false;
+        }
+        private void fillTextBoxesWithInfoFromFiles()
+        {
+            txtTakeScreenshotAndRecordAudioWithShareX.Text = readFile(filePathForTakeScreenshotAndRecordAudioWithShareX);
+            txtPasteImageAndAudioWithClipboardSoftware.Text = readFile(filePathForPasteImageAndAudioWithClipboardSoftware);
+            txtPasteMultipleImagesWithClipboardSoftware.Text = readFile(@"helper/hotkeyForPasteMultipleImagesWithClipboardSoftware.txt");
+            txtGeneralDelay.Text = readFile(@"helper/delayGeneral.txt");
+            txtDelayForRecordingToStart.Text = readFile(@"helper/delayForRecordingToStart.txt");
+            txtTakeScreenshot.Text = readOnlyTheHotkeyOfDotAHKFile(@"helper/TakeScreenshotWithShareX.ahk");
+            txtToggleRecordAudio.Text = readOnlyTheHotkeyOfDotAHKFile(@"helper/ToggleRecordAudioWithShareX.ahk");
+        }
+        
+        private void selectRadioButtonsFromInfoFromFiles()
+        {
             if (doesTextInFileEqualValue(@"helper/whenToTakeScreenshotWithShareX.txt", "0"))
                 radBeginning.Checked = true;
             else if (doesTextInFileEqualValue(@"helper/whenToTakeScreenshotWithShareX.txt", "1"))
@@ -100,25 +126,15 @@ namespace AnkiAudioSentenceCardScript
                 radLeftMouse.Checked = true;
             else if (doesTextInFileEqualValue(@"helper/PlayPauseVideo.ahk", "Send, {Space}"))
                 radSpaceBar.Checked = true;
+        }
 
-            // Files contain "Send, " at beginning, so cut it off
-            txtTakeScreenshot.Text = File.ReadAllText(@"helper/TakeScreenshotWithShareX.ahk").Substring(send.Length);
-            txtToggleRecordAudio.Text = File.ReadAllText(@"helper/ToggleRecordAudioWithShareX.ahk").Substring(send.Length);
-
-            if (doesTextInFileEqualValue(@"helper/clipboardSoftware.txt", "ditto"))
-            {
-                radDitto.Checked = true;
-                txtActivateClipboardSoftware.Text = File.ReadAllText(@"helper/ActivateDitto.ahk").Substring(send.Length);
-            } else
-            {
-                radWindowsClipboard.Checked = true;
-                txtActivateClipboardSoftware.Text = File.ReadAllText(@"helper/ActivateWindowsClipboard.ahk").Substring(send.Length);
-            }
-
-            txtGeneralDelay.Text = File.ReadAllText(@"helper/delayGeneral.txt");
-            txtDelayForRecordingToStart.Text = File.ReadAllText(@"helper/delayForRecordingToStart.txt");
-            
-            btnSave.Enabled = false;
+        private string readFile(string filePath)
+        {
+            return File.ReadAllText(filePath);
+        }
+        private string readOnlyTheHotkeyOfDotAHKFile(string filePath)
+        {
+            return readFile(filePath).Substring(send.Length);
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -127,44 +143,62 @@ namespace AnkiAudioSentenceCardScript
         }
         private void save()
         {
-            // change all files to value in text boxes
-            clearFileAndWrite(@"helper/hotkeyForTakeScreenshotAndRecordAudioWithShareX.txt", txtTakeScreenshotAndRecordAudioWithShareX.Text);
-            clearFileAndWrite(@"helper/hotkeyForPasteImageAndAudioWithClipboardSoftware.txt", txtPasteImageAndAudioWithClipboardSoftware.Text);
-            clearFileAndWrite(@"helper/hotkeyForPasteMultipleImagesWithClipboardSoftware.txt", txtPasteMultipleImagesWithClipboardSoftware.Text);
-
-            if (radBeginning.Checked)
-                clearFileAndWrite(@"helper/whenToTakeScreenshotWithShareX.txt", "0");
-            else if (radEnd.Checked)
-                clearFileAndWrite(@"helper/whenToTakeScreenshotWithShareX.txt", "1");
-            else if (radNoScreenshot.Checked)
-                clearFileAndWrite(@"helper/whenToTakeScreenshotWithShareX.txt", "2");
-
-            if (radLeftMouse.Checked)
-                clearFileAndWrite(@"helper/PlayPauseVideo.ahk", "MouseClick, left");
-            else if (radSpaceBar.Checked)
-                clearFileAndWrite(@"helper/PlayPauseVideo.ahk", "Send, {Space}");
-
-            // "Send, " was cut off, so add it back
-            clearFileAndWrite(@"helper/TakeScreenshotWithShareX.ahk", send + txtTakeScreenshot.Text);
-            clearFileAndWrite(@"helper/ToggleRecordAudioWithShareX.ahk", send + txtToggleRecordAudio.Text);
-            if (radDitto.Checked) {
-                clearFileAndWrite(@"helper/ActivateDitto.ahk", send + txtActivateClipboardSoftware.Text);
-                clearFileAndWrite(@"helper/clipboardSoftware.txt", "ditto");
-            } else if (radWindowsClipboard.Checked)
-            {
-                clearFileAndWrite(@"helper/ActivateWindowsClipboard.ahk", send + txtActivateClipboardSoftware.Text);
-                clearFileAndWrite(@"helper/clipboardSoftware.txt", "windowsClipboard");
-            }
-                
-
-            clearFileAndWrite(@"helper/delayGeneral.txt", txtGeneralDelay.Text);
-            clearFileAndWrite(@"helper/delayForRecordingToStart.txt", txtDelayForRecordingToStart.Text);
-
-            // runs scripts
+            writeTextBoxInformationIntoFiles();
+            writeRadioButtonSelectionsIntoFiles();
             openAllScripts();
 
             btnSave.Enabled = false;
         }
+        private void writeTextBoxInformationIntoFiles()
+        {
+            clearFileAndWrite(filePathForTakeScreenshotAndRecordAudioWithShareX, txtTakeScreenshotAndRecordAudioWithShareX.Text);
+            clearFileAndWrite(filePathForPasteImageAndAudioWithClipboardSoftware, txtPasteImageAndAudioWithClipboardSoftware.Text);
+            clearFileAndWrite(@"helper/hotkeyForPasteMultipleImagesWithClipboardSoftware.txt", txtPasteMultipleImagesWithClipboardSoftware.Text);
+            clearFileAndWrite(@"helper/TakeScreenshotWithShareX.ahk", send + txtTakeScreenshot.Text);
+            clearFileAndWrite(@"helper/ToggleRecordAudioWithShareX.ahk", send + txtToggleRecordAudio.Text);
+            clearFileAndWrite(@"helper/delayGeneral.txt", txtGeneralDelay.Text);
+            clearFileAndWrite(@"helper/delayForRecordingToStart.txt", txtDelayForRecordingToStart.Text);
+        }
+        
+        private void writeRadioButtonSelectionsIntoFiles()
+        {
+            updateFile(@"helper/whenToTakeScreenshotWithShareX.txt");
+            updateFile(@"helper/PlayPauseVideo.ahk");
+
+            if (radDitto.Checked)
+            {
+                clearFileAndWrite(filePathForActivateDitto, send + txtActivateClipboardSoftware.Text);
+                clearFileAndWrite(filePathForClipboardSoftware, "ditto");
+            }
+            else if (radWindowsClipboard.Checked)
+            {
+                clearFileAndWrite(filePathForActivateWindowsClipboard, send + txtActivateClipboardSoftware.Text);
+                clearFileAndWrite(filePathForClipboardSoftware, "windowsClipboard");
+            }
+        }
+        private void updateFile(string filePath)
+        {
+            switch(filePath)
+            {
+                case @"helper/whenToTakeScreenshotWithShareX.txt":
+                    if (radBeginning.Checked)
+                        clearFileAndWrite(@"helper/whenToTakeScreenshotWithShareX.txt", "0");
+                    else if (radEnd.Checked)
+                        clearFileAndWrite(@"helper/whenToTakeScreenshotWithShareX.txt", "1");
+                    else if (radNoScreenshot.Checked)
+                        clearFileAndWrite(@"helper/whenToTakeScreenshotWithShareX.txt", "2");
+
+                    break;
+                case @"helper/PlayPauseVideo.ahk":
+                    if (radLeftMouse.Checked)
+                        clearFileAndWrite(@"helper/PlayPauseVideo.ahk", "MouseClick, left");
+                    else if (radSpaceBar.Checked)
+                        clearFileAndWrite(@"helper/PlayPauseVideo.ahk", "Send, {Space}");
+
+                    break;
+            }
+        }
+
         public void startAutohotkeyScript(String s)
         {
             System.Diagnostics.Process process = new System.Diagnostics.Process();
@@ -273,7 +307,7 @@ namespace AnkiAudioSentenceCardScript
         {
             if (radDitto.Checked)
             {
-                txtActivateClipboardSoftware.Text = File.ReadAllText(@"helper/ActivateDitto.ahk").Substring(send.Length);
+                txtActivateClipboardSoftware.Text = readOnlyTheHotkeyOfDotAHKFile(filePathForActivateDitto);
                 radEnd.Enabled = true;
             }
         }
@@ -282,7 +316,7 @@ namespace AnkiAudioSentenceCardScript
         {
             if (radWindowsClipboard.Checked)
             {
-                txtActivateClipboardSoftware.Text = File.ReadAllText(@"helper/ActivateWindowsClipboard.ahk").Substring(send.Length);
+                txtActivateClipboardSoftware.Text = readOnlyTheHotkeyOfDotAHKFile(filePathForActivateWindowsClipboard);
                 disableTakeScreenshotAtBeginning();
             }
         }
