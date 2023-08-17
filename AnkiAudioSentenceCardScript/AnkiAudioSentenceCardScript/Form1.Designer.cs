@@ -30,11 +30,11 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.txtTakeScreenshotAndRecordAudioWithShareX = new System.Windows.Forms.TextBox();
-            this.txtPasteImageAndAudioFromDitto = new System.Windows.Forms.TextBox();
-            this.txtPasteMultipleImagesFromDitto = new System.Windows.Forms.TextBox();
+            this.txtPasteImageAndAudioWithClipboardSoftware = new System.Windows.Forms.TextBox();
+            this.txtPasteMultipleImagesWithClipboardSoftware = new System.Windows.Forms.TextBox();
             this.lblTakeScreenshotAndRecordAudioWithShareX = new System.Windows.Forms.Label();
-            this.lbPasteImageAndAudioFromDitto = new System.Windows.Forms.Label();
-            this.lblPasteMultipleImagesFromDitto = new System.Windows.Forms.Label();
+            this.lbPasteImageAndAudioFromClipboard = new System.Windows.Forms.Label();
+            this.lblPasteMultipleImagesFromClipboard = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.radNoScreenshot = new System.Windows.Forms.RadioButton();
             this.radEnd = new System.Windows.Forms.RadioButton();
@@ -44,11 +44,14 @@
             this.grpPrimaryScriptHotkeys = new System.Windows.Forms.GroupBox();
             this.lblIsRecording = new System.Windows.Forms.Label();
             this.txtIsRecording = new System.Windows.Forms.TextBox();
+            this.btnResetIsRecording = new System.Windows.Forms.Button();
             this.btnCloseAllScripts = new System.Windows.Forms.Button();
             this.btnOpenAllScripts = new System.Windows.Forms.Button();
             this.grpSecondaryScriptHotkeys = new System.Windows.Forms.GroupBox();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.txtActivateDitto = new System.Windows.Forms.TextBox();
+            this.grpClipboardSoftware = new System.Windows.Forms.GroupBox();
+            this.radWindowsClipboard = new System.Windows.Forms.RadioButton();
+            this.radDitto = new System.Windows.Forms.RadioButton();
+            this.txtActivateClipboardSoftware = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.txtToggleRecordAudio = new System.Windows.Forms.TextBox();
@@ -66,11 +69,10 @@
             this.lblDelayForRecordingToStart = new System.Windows.Forms.Label();
             this.grpDelays = new System.Windows.Forms.GroupBox();
             this.linkLblAutoHotkeyWebsite = new System.Windows.Forms.LinkLabel();
-            this.btnResetIsRecording = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.grpPrimaryScriptHotkeys.SuspendLayout();
             this.grpSecondaryScriptHotkeys.SuspendLayout();
-            this.groupBox5.SuspendLayout();
+            this.grpClipboardSoftware.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.grpDelays.SuspendLayout();
@@ -84,21 +86,21 @@
             this.txtTakeScreenshotAndRecordAudioWithShareX.TabIndex = 1;
             this.txtTakeScreenshotAndRecordAudioWithShareX.TextChanged += new System.EventHandler(this.txtTakeScreenshotAndRecordAudioWithShareX_TextChanged);
             // 
-            // txtPasteImageAndAudioFromDitto
+            // txtPasteImageAndAudioWithClipboardSoftware
             // 
-            this.txtPasteImageAndAudioFromDitto.Location = new System.Drawing.Point(287, 38);
-            this.txtPasteImageAndAudioFromDitto.Name = "txtPasteImageAndAudioFromDitto";
-            this.txtPasteImageAndAudioFromDitto.Size = new System.Drawing.Size(96, 20);
-            this.txtPasteImageAndAudioFromDitto.TabIndex = 3;
-            this.txtPasteImageAndAudioFromDitto.TextChanged += new System.EventHandler(this.txtPasteImageAndAudioFromDitto_TextChanged);
+            this.txtPasteImageAndAudioWithClipboardSoftware.Location = new System.Drawing.Point(287, 38);
+            this.txtPasteImageAndAudioWithClipboardSoftware.Name = "txtPasteImageAndAudioWithClipboardSoftware";
+            this.txtPasteImageAndAudioWithClipboardSoftware.Size = new System.Drawing.Size(96, 20);
+            this.txtPasteImageAndAudioWithClipboardSoftware.TabIndex = 3;
+            this.txtPasteImageAndAudioWithClipboardSoftware.TextChanged += new System.EventHandler(this.txtPasteImageAndAudioWithClipboardSoftware_TextChanged);
             // 
-            // txtPasteMultipleImagesFromDitto
+            // txtPasteMultipleImagesWithClipboardSoftware
             // 
-            this.txtPasteMultipleImagesFromDitto.Location = new System.Drawing.Point(287, 63);
-            this.txtPasteMultipleImagesFromDitto.Name = "txtPasteMultipleImagesFromDitto";
-            this.txtPasteMultipleImagesFromDitto.Size = new System.Drawing.Size(96, 20);
-            this.txtPasteMultipleImagesFromDitto.TabIndex = 5;
-            this.txtPasteMultipleImagesFromDitto.TextChanged += new System.EventHandler(this.txtPasteMultipleImagesFromDitto_TextChanged);
+            this.txtPasteMultipleImagesWithClipboardSoftware.Location = new System.Drawing.Point(287, 63);
+            this.txtPasteMultipleImagesWithClipboardSoftware.Name = "txtPasteMultipleImagesWithClipboardSoftware";
+            this.txtPasteMultipleImagesWithClipboardSoftware.Size = new System.Drawing.Size(96, 20);
+            this.txtPasteMultipleImagesWithClipboardSoftware.TabIndex = 5;
+            this.txtPasteMultipleImagesWithClipboardSoftware.TextChanged += new System.EventHandler(this.txtPasteMultipleImagesWithClipboardSoftware_TextChanged);
             // 
             // lblTakeScreenshotAndRecordAudioWithShareX
             // 
@@ -109,23 +111,23 @@
             this.lblTakeScreenshotAndRecordAudioWithShareX.TabIndex = 0;
             this.lblTakeScreenshotAndRecordAudioWithShareX.Text = "Take screenshot and record audio with ShareX";
             // 
-            // lbPasteImageAndAudioFromDitto
+            // lbPasteImageAndAudioFromClipboard
             // 
-            this.lbPasteImageAndAudioFromDitto.AutoSize = true;
-            this.lbPasteImageAndAudioFromDitto.Location = new System.Drawing.Point(19, 41);
-            this.lbPasteImageAndAudioFromDitto.Name = "lbPasteImageAndAudioFromDitto";
-            this.lbPasteImageAndAudioFromDitto.Size = new System.Drawing.Size(186, 13);
-            this.lbPasteImageAndAudioFromDitto.TabIndex = 2;
-            this.lbPasteImageAndAudioFromDitto.Text = "Paste screenshot and audio with Ditto";
+            this.lbPasteImageAndAudioFromClipboard.AutoSize = true;
+            this.lbPasteImageAndAudioFromClipboard.Location = new System.Drawing.Point(19, 41);
+            this.lbPasteImageAndAudioFromClipboard.Name = "lbPasteImageAndAudioFromClipboard";
+            this.lbPasteImageAndAudioFromClipboard.Size = new System.Drawing.Size(251, 13);
+            this.lbPasteImageAndAudioFromClipboard.TabIndex = 2;
+            this.lbPasteImageAndAudioFromClipboard.Text = "Paste screenshot and audio from clipboard software";
             // 
-            // lblPasteMultipleImagesFromDitto
+            // lblPasteMultipleImagesFromClipboard
             // 
-            this.lblPasteMultipleImagesFromDitto.AutoSize = true;
-            this.lblPasteMultipleImagesFromDitto.Location = new System.Drawing.Point(19, 66);
-            this.lblPasteMultipleImagesFromDitto.Name = "lblPasteMultipleImagesFromDitto";
-            this.lblPasteMultipleImagesFromDitto.Size = new System.Drawing.Size(179, 13);
-            this.lblPasteMultipleImagesFromDitto.TabIndex = 4;
-            this.lblPasteMultipleImagesFromDitto.Text = "Paste multiple screenshots with Ditto";
+            this.lblPasteMultipleImagesFromClipboard.AutoSize = true;
+            this.lblPasteMultipleImagesFromClipboard.Location = new System.Drawing.Point(19, 66);
+            this.lblPasteMultipleImagesFromClipboard.Name = "lblPasteMultipleImagesFromClipboard";
+            this.lblPasteMultipleImagesFromClipboard.Size = new System.Drawing.Size(244, 13);
+            this.lblPasteMultipleImagesFromClipboard.TabIndex = 4;
+            this.lblPasteMultipleImagesFromClipboard.Text = "Paste multiple screenshots from clipboard software";
             // 
             // groupBox1
             // 
@@ -197,13 +199,13 @@
             // 
             this.grpPrimaryScriptHotkeys.Controls.Add(this.lblIsRecording);
             this.grpPrimaryScriptHotkeys.Controls.Add(this.txtIsRecording);
-            this.grpPrimaryScriptHotkeys.Controls.Add(this.lblPasteMultipleImagesFromDitto);
+            this.grpPrimaryScriptHotkeys.Controls.Add(this.lblPasteMultipleImagesFromClipboard);
             this.grpPrimaryScriptHotkeys.Controls.Add(this.btnResetIsRecording);
             this.grpPrimaryScriptHotkeys.Controls.Add(this.txtTakeScreenshotAndRecordAudioWithShareX);
-            this.grpPrimaryScriptHotkeys.Controls.Add(this.txtPasteImageAndAudioFromDitto);
-            this.grpPrimaryScriptHotkeys.Controls.Add(this.txtPasteMultipleImagesFromDitto);
+            this.grpPrimaryScriptHotkeys.Controls.Add(this.txtPasteImageAndAudioWithClipboardSoftware);
+            this.grpPrimaryScriptHotkeys.Controls.Add(this.txtPasteMultipleImagesWithClipboardSoftware);
             this.grpPrimaryScriptHotkeys.Controls.Add(this.lblTakeScreenshotAndRecordAudioWithShareX);
-            this.grpPrimaryScriptHotkeys.Controls.Add(this.lbPasteImageAndAudioFromDitto);
+            this.grpPrimaryScriptHotkeys.Controls.Add(this.lbPasteImageAndAudioFromClipboard);
             this.grpPrimaryScriptHotkeys.Location = new System.Drawing.Point(49, 99);
             this.grpPrimaryScriptHotkeys.Name = "grpPrimaryScriptHotkeys";
             this.grpPrimaryScriptHotkeys.Size = new System.Drawing.Size(400, 116);
@@ -228,9 +230,19 @@
             this.txtIsRecording.Size = new System.Drawing.Size(96, 20);
             this.txtIsRecording.TabIndex = 8;
             // 
+            // btnResetIsRecording
+            // 
+            this.btnResetIsRecording.Location = new System.Drawing.Point(239, 88);
+            this.btnResetIsRecording.Name = "btnResetIsRecording";
+            this.btnResetIsRecording.Size = new System.Drawing.Size(44, 22);
+            this.btnResetIsRecording.TabIndex = 7;
+            this.btnResetIsRecording.Text = "Reset";
+            this.btnResetIsRecording.UseVisualStyleBackColor = true;
+            this.btnResetIsRecording.Click += new System.EventHandler(this.btnResetIsRecording_Click);
+            // 
             // btnCloseAllScripts
             // 
-            this.btnCloseAllScripts.Location = new System.Drawing.Point(351, 534);
+            this.btnCloseAllScripts.Location = new System.Drawing.Point(351, 576);
             this.btnCloseAllScripts.Name = "btnCloseAllScripts";
             this.btnCloseAllScripts.Size = new System.Drawing.Size(87, 25);
             this.btnCloseAllScripts.TabIndex = 7;
@@ -240,7 +252,7 @@
             // 
             // btnOpenAllScripts
             // 
-            this.btnOpenAllScripts.Location = new System.Drawing.Point(261, 534);
+            this.btnOpenAllScripts.Location = new System.Drawing.Point(261, 576);
             this.btnOpenAllScripts.Name = "btnOpenAllScripts";
             this.btnOpenAllScripts.Size = new System.Drawing.Size(87, 25);
             this.btnOpenAllScripts.TabIndex = 6;
@@ -250,39 +262,65 @@
             // 
             // grpSecondaryScriptHotkeys
             // 
-            this.grpSecondaryScriptHotkeys.Controls.Add(this.groupBox5);
+            this.grpSecondaryScriptHotkeys.Controls.Add(this.grpClipboardSoftware);
             this.grpSecondaryScriptHotkeys.Controls.Add(this.groupBox4);
             this.grpSecondaryScriptHotkeys.Controls.Add(this.groupBox6);
             this.grpSecondaryScriptHotkeys.Location = new System.Drawing.Point(49, 218);
             this.grpSecondaryScriptHotkeys.Name = "grpSecondaryScriptHotkeys";
-            this.grpSecondaryScriptHotkeys.Size = new System.Drawing.Size(400, 238);
+            this.grpSecondaryScriptHotkeys.Size = new System.Drawing.Size(400, 274);
             this.grpSecondaryScriptHotkeys.TabIndex = 3;
             this.grpSecondaryScriptHotkeys.TabStop = false;
             this.grpSecondaryScriptHotkeys.Text = "Secondary script hotkeys";
             // 
-            // groupBox5
+            // grpClipboardSoftware
             // 
-            this.groupBox5.Controls.Add(this.txtActivateDitto);
-            this.groupBox5.Controls.Add(this.label3);
-            this.groupBox5.Location = new System.Drawing.Point(6, 139);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(388, 45);
-            this.groupBox5.TabIndex = 1;
-            this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "Ditto";
+            this.grpClipboardSoftware.Controls.Add(this.radWindowsClipboard);
+            this.grpClipboardSoftware.Controls.Add(this.radDitto);
+            this.grpClipboardSoftware.Controls.Add(this.txtActivateClipboardSoftware);
+            this.grpClipboardSoftware.Controls.Add(this.label3);
+            this.grpClipboardSoftware.Location = new System.Drawing.Point(6, 139);
+            this.grpClipboardSoftware.Name = "grpClipboardSoftware";
+            this.grpClipboardSoftware.Size = new System.Drawing.Size(388, 71);
+            this.grpClipboardSoftware.TabIndex = 1;
+            this.grpClipboardSoftware.TabStop = false;
+            this.grpClipboardSoftware.Text = "Clipboard software";
             // 
-            // txtActivateDitto
+            // radWindowsClipboard
             // 
-            this.txtActivateDitto.Location = new System.Drawing.Point(281, 16);
-            this.txtActivateDitto.Name = "txtActivateDitto";
-            this.txtActivateDitto.Size = new System.Drawing.Size(96, 20);
-            this.txtActivateDitto.TabIndex = 1;
-            this.txtActivateDitto.TextChanged += new System.EventHandler(this.txtActivateDitto_TextChanged);
+            this.radWindowsClipboard.AutoSize = true;
+            this.radWindowsClipboard.Location = new System.Drawing.Point(185, 19);
+            this.radWindowsClipboard.Name = "radWindowsClipboard";
+            this.radWindowsClipboard.Size = new System.Drawing.Size(115, 17);
+            this.radWindowsClipboard.TabIndex = 3;
+            this.radWindowsClipboard.TabStop = true;
+            this.radWindowsClipboard.Text = "Windows clipboard";
+            this.radWindowsClipboard.UseVisualStyleBackColor = true;
+            this.radWindowsClipboard.CheckedChanged += new System.EventHandler(this.radWindowsClipboard_CheckedChanged);
+            // 
+            // radDitto
+            // 
+            this.radDitto.AutoSize = true;
+            this.radDitto.Location = new System.Drawing.Point(122, 19);
+            this.radDitto.Name = "radDitto";
+            this.radDitto.Size = new System.Drawing.Size(47, 17);
+            this.radDitto.TabIndex = 2;
+            this.radDitto.TabStop = true;
+            this.radDitto.Text = "Ditto";
+            this.radDitto.UseVisualStyleBackColor = true;
+            this.radDitto.CheckedChanged += new System.EventHandler(this.radDitto_CheckedChanged);
+            // 
+            // txtActivateClipboardSoftware
+            // 
+            this.txtActivateClipboardSoftware.Location = new System.Drawing.Point(281, 43);
+            this.txtActivateClipboardSoftware.Name = "txtActivateClipboardSoftware";
+            this.txtActivateClipboardSoftware.Size = new System.Drawing.Size(96, 20);
+            this.txtActivateClipboardSoftware.TabIndex = 1;
+            this.txtActivateClipboardSoftware.TextChanged += new System.EventHandler(this.txtActivateClipboardSoftware_TextChanged);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(13, 19);
+            this.label3.Location = new System.Drawing.Point(13, 46);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(46, 13);
             this.label3.TabIndex = 0;
@@ -322,7 +360,7 @@
             // 
             this.groupBox6.Controls.Add(this.radLeftMouse);
             this.groupBox6.Controls.Add(this.radSpaceBar);
-            this.groupBox6.Location = new System.Drawing.Point(6, 185);
+            this.groupBox6.Location = new System.Drawing.Point(6, 219);
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.Size = new System.Drawing.Size(388, 48);
             this.groupBox6.TabIndex = 2;
@@ -355,7 +393,7 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(59, 534);
+            this.btnSave.Location = new System.Drawing.Point(59, 576);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(199, 25);
             this.btnSave.TabIndex = 5;
@@ -365,7 +403,7 @@
             // 
             // btnReset
             // 
-            this.btnReset.Location = new System.Drawing.Point(150, 563);
+            this.btnReset.Location = new System.Drawing.Point(150, 605);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(133, 25);
             this.btnReset.TabIndex = 8;
@@ -385,7 +423,7 @@
             // 
             // btnClose
             // 
-            this.btnClose.Location = new System.Drawing.Point(286, 563);
+            this.btnClose.Location = new System.Drawing.Point(286, 605);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(69, 25);
             this.btnClose.TabIndex = 9;
@@ -433,7 +471,7 @@
             this.grpDelays.Controls.Add(this.lblDelayForRecordingToStart);
             this.grpDelays.Controls.Add(this.lblGeneralDelay);
             this.grpDelays.Controls.Add(this.txtDelayForRecordingToStart);
-            this.grpDelays.Location = new System.Drawing.Point(49, 457);
+            this.grpDelays.Location = new System.Drawing.Point(49, 494);
             this.grpDelays.Name = "grpDelays";
             this.grpDelays.Size = new System.Drawing.Size(400, 73);
             this.grpDelays.TabIndex = 4;
@@ -452,23 +490,13 @@
     "cial documentation.";
             this.linkLblAutoHotkeyWebsite.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLblAutoHotkeyWebsite_LinkClicked);
             // 
-            // btnResetIsRecording
-            // 
-            this.btnResetIsRecording.Location = new System.Drawing.Point(239, 88);
-            this.btnResetIsRecording.Name = "btnResetIsRecording";
-            this.btnResetIsRecording.Size = new System.Drawing.Size(44, 22);
-            this.btnResetIsRecording.TabIndex = 7;
-            this.btnResetIsRecording.Text = "Reset";
-            this.btnResetIsRecording.UseVisualStyleBackColor = true;
-            this.btnResetIsRecording.Click += new System.EventHandler(this.btnResetIsRecording_Click);
-            // 
             // Form1
             // 
             this.AcceptButton = this.btnSave;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(498, 594);
+            this.ClientSize = new System.Drawing.Size(498, 640);
             this.Controls.Add(this.btnCloseAllScripts);
             this.Controls.Add(this.linkLblAutoHotkeyWebsite);
             this.Controls.Add(this.btnOpenAllScripts);
@@ -489,8 +517,8 @@
             this.grpPrimaryScriptHotkeys.ResumeLayout(false);
             this.grpPrimaryScriptHotkeys.PerformLayout();
             this.grpSecondaryScriptHotkeys.ResumeLayout(false);
-            this.groupBox5.ResumeLayout(false);
-            this.groupBox5.PerformLayout();
+            this.grpClipboardSoftware.ResumeLayout(false);
+            this.grpClipboardSoftware.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             this.groupBox6.ResumeLayout(false);
@@ -505,11 +533,11 @@
         #endregion
 
         private System.Windows.Forms.TextBox txtTakeScreenshotAndRecordAudioWithShareX;
-        private System.Windows.Forms.TextBox txtPasteImageAndAudioFromDitto;
-        private System.Windows.Forms.TextBox txtPasteMultipleImagesFromDitto;
+        private System.Windows.Forms.TextBox txtPasteImageAndAudioWithClipboardSoftware;
+        private System.Windows.Forms.TextBox txtPasteMultipleImagesWithClipboardSoftware;
         private System.Windows.Forms.Label lblTakeScreenshotAndRecordAudioWithShareX;
-        private System.Windows.Forms.Label lbPasteImageAndAudioFromDitto;
-        private System.Windows.Forms.Label lblPasteMultipleImagesFromDitto;
+        private System.Windows.Forms.Label lbPasteImageAndAudioFromClipboard;
+        private System.Windows.Forms.Label lblPasteMultipleImagesFromClipboard;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.RadioButton radNoScreenshot;
         private System.Windows.Forms.RadioButton radEnd;
@@ -518,8 +546,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.GroupBox grpPrimaryScriptHotkeys;
         private System.Windows.Forms.GroupBox grpSecondaryScriptHotkeys;
-        private System.Windows.Forms.GroupBox groupBox5;
-        private System.Windows.Forms.TextBox txtActivateDitto;
+        private System.Windows.Forms.GroupBox grpClipboardSoftware;
+        private System.Windows.Forms.TextBox txtActivateClipboardSoftware;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.TextBox txtToggleRecordAudio;
@@ -542,6 +570,8 @@
         private System.Windows.Forms.Button btnResetIsRecording;
         private System.Windows.Forms.Label lblIsRecording;
         private System.Windows.Forms.TextBox txtIsRecording;
+        private System.Windows.Forms.RadioButton radWindowsClipboard;
+        private System.Windows.Forms.RadioButton radDitto;
     }
 }
 
