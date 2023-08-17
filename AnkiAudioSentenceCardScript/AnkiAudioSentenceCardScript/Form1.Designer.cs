@@ -291,7 +291,7 @@
             this.radWindowsClipboard.Location = new System.Drawing.Point(185, 19);
             this.radWindowsClipboard.Name = "radWindowsClipboard";
             this.radWindowsClipboard.Size = new System.Drawing.Size(115, 17);
-            this.radWindowsClipboard.TabIndex = 3;
+            this.radWindowsClipboard.TabIndex = 1;
             this.radWindowsClipboard.TabStop = true;
             this.radWindowsClipboard.Text = "Windows clipboard";
             this.radWindowsClipboard.UseVisualStyleBackColor = true;
@@ -303,7 +303,7 @@
             this.radDitto.Location = new System.Drawing.Point(122, 19);
             this.radDitto.Name = "radDitto";
             this.radDitto.Size = new System.Drawing.Size(47, 17);
-            this.radDitto.TabIndex = 2;
+            this.radDitto.TabIndex = 0;
             this.radDitto.TabStop = true;
             this.radDitto.Text = "Ditto";
             this.radDitto.UseVisualStyleBackColor = true;
@@ -314,7 +314,7 @@
             this.txtActivateClipboardSoftware.Location = new System.Drawing.Point(281, 43);
             this.txtActivateClipboardSoftware.Name = "txtActivateClipboardSoftware";
             this.txtActivateClipboardSoftware.Size = new System.Drawing.Size(96, 20);
-            this.txtActivateClipboardSoftware.TabIndex = 1;
+            this.txtActivateClipboardSoftware.TabIndex = 3;
             this.txtActivateClipboardSoftware.TextChanged += new System.EventHandler(this.txtActivateClipboardSoftware_TextChanged);
             // 
             // label3
@@ -323,7 +323,7 @@
             this.label3.Location = new System.Drawing.Point(13, 46);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(46, 13);
-            this.label3.TabIndex = 0;
+            this.label3.TabIndex = 2;
             this.label3.Text = "Activate";
             // 
             // groupBox4
