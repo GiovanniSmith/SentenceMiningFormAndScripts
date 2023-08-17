@@ -75,7 +75,8 @@ namespace AnkiAudioSentenceCardScript
             // Force the ToolTip text to be displayed whether or not the form is active.
             toolTip.ShowAlways = true;
 
-            // Set up the ToolTip text
+        // Set up the ToolTip text
+            toolTip.SetToolTip(this.linkLblAutoHotkeyWebsite, "https://www.autohotkey.com/docs/v2/Hotkeys.htm#Symbols");
             toolTip.SetToolTip(this.grpPrimaryScriptHotkeys, "Hotkeys that the user presses");
             toolTip.SetToolTip(this.grpSecondaryScriptHotkeys, "Hotkeys that the script presses");
             toolTip.SetToolTip(this.grpDelays, "Programs need delays between actions so that they function correctly");
@@ -91,26 +92,23 @@ namespace AnkiAudioSentenceCardScript
             txtPasteImageAndAudioWithClipboardSoftware.Text = File.ReadAllText(@"helper/hotkeyForPasteImageAndAudioWithClipboardSoftware.txt");
             txtPasteMultipleImagesWithClipboardSoftware.Text = File.ReadAllText(@"helper/hotkeyForPasteMultipleImagesWithClipboardSoftware.txt");
 
-            if (File.ReadAllText(@"helper/whenToTakeScreenshotWithShareX.txt").Substring(0, 1).Equals("0"))
+            if (doesTextInFileEqualValue(@"helper/whenToTakeScreenshotWithShareX.txt", "0"))
                 radBeginning.Checked = true;
-            else if (File.ReadAllText(@"helper/whenToTakeScreenshotWithShareX.txt").Substring(0, 1).Equals("1"))
+            else if (doesTextInFileEqualValue(@"helper/whenToTakeScreenshotWithShareX.txt", "1"))
                 radEnd.Checked = true;
-            else if (File.ReadAllText(@"helper/whenToTakeScreenshotWithShareX.txt").Substring(0, 1).Equals("2"))
+            else if (doesTextInFileEqualValue(@"helper/whenToTakeScreenshotWithShareX.txt", "2"))
                 radNoScreenshot.Checked = true;
 
-            // Console.WriteLine(doesTextInFileEqualValue(@"helper/ActivateDitto.ahk", send + "^!+d"));
-
-
-            if (File.ReadAllText(@"helper/PlayPauseVideo.ahk").Substring(0, 10).Equals("MouseClick"))
+            if (doesTextInFileEqualValue(@"helper/PlayPauseVideo.ahk", "MouseClick, left"))
                 radLeftMouse.Checked = true;
-            else if (File.ReadAllText(@"helper/PlayPauseVideo.ahk").Substring(0, 13).Equals("Send, {Space}"))
+            else if (doesTextInFileEqualValue(@"helper/PlayPauseVideo.ahk", "Send, {Space}"))
                 radSpaceBar.Checked = true;
 
             // Files contain "Send, " at beginning, so cut it off
             txtTakeScreenshot.Text = File.ReadAllText(@"helper/TakeScreenshotWithShareX.ahk").Substring(send.Length);
             txtToggleRecordAudio.Text = File.ReadAllText(@"helper/ToggleRecordAudioWithShareX.ahk").Substring(send.Length);
 
-            if (File.ReadAllText(@"helper/clipboardSoftware.txt").Substring(0, 5).Equals("ditto"))
+            if (doesTextInFileEqualValue(@"helper/clipboardSoftware.txt", "ditto"))
             {
                 radDitto.Checked = true;
                 txtActivateClipboardSoftware.Text = File.ReadAllText(@"helper/ActivateDitto.ahk").Substring(send.Length);
@@ -149,7 +147,7 @@ namespace AnkiAudioSentenceCardScript
             else if (radSpaceBar.Checked)
                 clearFileAndWrite(@"helper/PlayPauseVideo.ahk", "Send, {Space}");
 
-                // "Send, " was cut off, so add it back
+            // "Send, " was cut off, so add it back
             clearFileAndWrite(@"helper/TakeScreenshotWithShareX.ahk", send + txtTakeScreenshot.Text);
             clearFileAndWrite(@"helper/ToggleRecordAudioWithShareX.ahk", send + txtToggleRecordAudio.Text);
             if (radDitto.Checked) {
@@ -167,7 +165,6 @@ namespace AnkiAudioSentenceCardScript
 
             // runs scripts
             openAllScripts();
-            
 
             btnSave.Enabled = false;
         }
@@ -190,11 +187,6 @@ namespace AnkiAudioSentenceCardScript
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        private void btnOpenCropMarginCalculatorForShareX_Click(object sender, EventArgs e)
-        {
-            
         }
 
         private void btnReset_Click(object sender, EventArgs e)
@@ -289,21 +281,6 @@ namespace AnkiAudioSentenceCardScript
             Process.Start(sInfo);
         }
 
-        private void btnOpenTakeScreenshotAndRecordAudioWithShareX_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void btnPasteScreenshotAndAudioWithDitto_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void btnPasteMultipleScreenshotsWithDitto_Click(object sender, EventArgs e)
-        {
-            
-        }
-
         private void openAllScripts()
         {
             startAutohotkeyScript("TakeScreenshotAndRecordAudioWithShareX.ahk");
@@ -351,11 +328,6 @@ namespace AnkiAudioSentenceCardScript
         {
             Form form = new CropMarginCalculatorForShareX();
             form.ShowDialog();
-        }
-
-        private void vScrollBar1_Scroll(object sender, ScrollEventArgs e)
-        {
-
         }
 
         private void radDitto_CheckedChanged(object sender, EventArgs e)

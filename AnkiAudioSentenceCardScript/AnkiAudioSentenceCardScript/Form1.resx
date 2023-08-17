@@ -119,10 +119,10 @@
   </resheader>
   <data name="label6.Text" xml:space="preserve">
     <value>This application changes the text file variables that three AutoHotkey scripts use to function properly.
-
 Take note that normal keys are lowercase, while function keys are uppercase.
 
-Ctrl: ^     Alt: !     Shift: +     which means     ^g is Ctrl G     ^!u is Ctrl Alt U     ^!+F3 is Ctrl Alt Shift F3</value>
+Ctrl: ^     Alt: !     Shift: +     Windows Key: #
+which means ^g is Ctrl G     ^!u is Ctrl Alt U     ^!+F3 is Ctrl Alt Shift F3</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
