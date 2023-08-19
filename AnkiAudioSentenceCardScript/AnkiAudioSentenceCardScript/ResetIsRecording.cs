@@ -27,7 +27,7 @@ namespace AnkiAudioSentenceCardScript
         private void btnReset_Click(object sender, EventArgs e)
         {
             resetForIsRecordingWasClicked = true;
-            Form1.updateFileWithText(@"helper/isRecordingAudio.txt", "0");
+            Form1.updateFileWithText(Form1.filePathForIsRecordingAudio, "0");
             this.Close();
         }
 

@@ -18,26 +18,26 @@ namespace AnkiAudioSentenceCardScript
         private FileSystemWatcher fileWatcher;
         public static string send = "Send, ";
 
-        private string filePathForTakeScreenshotAndRecordAudioWithShareX = "TakeScreenshotAndRecordAudioWithShareX.ahk";
-        private string filePathForHotkeyForTakeScreenshotAndRecordAudioWithShareX = @"helper/hotkeyForTakeScreenshotAndRecordAudioWithShareX.txt";
-        private string filePathForPasteImageAndAudioWithClipboardSoftware = "PasteImageAndAudioWithClipboardSoftware.ahk";
-        private string filePathForHotkeyForPasteImageAndAudioWithClipboardSoftware = @"helper/hotkeyForPasteImageAndAudioWithClipboardSoftware.txt";
-        private string filePathForPasteMultipleImagesWithClipboardSoftware = "PasteMultipleImagesWithClipboardSoftware.ahk";
-        private string filePathForHotkeyForPasteMultipleImagesWithClipboardSoftware = @"helper/hotkeyForPasteMultipleImagesWithClipboardSoftware.txt";
-        private string filePathForIsRecordingAudio = @"helper/isRecordingAudio.txt";
+        public static string filePathForTakeScreenshotAndRecordAudioWithShareX = "TakeScreenshotAndRecordAudioWithShareX.ahk";
+        public static string filePathForHotkeyForTakeScreenshotAndRecordAudioWithShareX = @"helper/hotkeyForTakeScreenshotAndRecordAudioWithShareX.txt";
+        public static string filePathForPasteImageAndAudioWithClipboardSoftware = "PasteImageAndAudioWithClipboardSoftware.ahk";
+        public static string filePathForHotkeyForPasteImageAndAudioWithClipboardSoftware = @"helper/hotkeyForPasteImageAndAudioWithClipboardSoftware.txt";
+        public static string filePathForPasteMultipleImagesWithClipboardSoftware = "PasteMultipleImagesWithClipboardSoftware.ahk";
+        public static string filePathForHotkeyForPasteMultipleImagesWithClipboardSoftware = @"helper/hotkeyForPasteMultipleImagesWithClipboardSoftware.txt";
+        public static string filePathForIsRecordingAudio = @"helper/isRecordingAudio.txt";
 
-        private string filePathForTakeScreenshot = @"helper/TakeScreenshotWithShareX.ahk";
-        private string filePathForToggleRecordAudio = @"helper/ToggleRecordAudioWithShareX.ahk";
-        private string filePathForWhenToTakeScreenshotWithShareX = @"helper/whenToTakeScreenshotWithShareX.txt";
+        public static string filePathForTakeScreenshot = @"helper/TakeScreenshotWithShareX.ahk";
+        public static string filePathForToggleRecordAudio = @"helper/ToggleRecordAudioWithShareX.ahk";
+        public static string filePathForWhenToTakeScreenshotWithShareX = @"helper/whenToTakeScreenshotWithShareX.txt";
 
-        private string filePathForClipboardSoftware = @"helper/clipboardSoftware.txt";
-        private string filePathForActivateDitto = @"helper/ActivateDitto.ahk";
-        private string filePathForActivateWindowsClipboard = @"helper/ActivateWindowsClipboard.ahk";
+        public static string filePathForClipboardSoftware = @"helper/clipboardSoftware.txt";
+        public static string filePathForActivateDitto = @"helper/ActivateDitto.ahk";
+        public static string filePathForActivateWindowsClipboard = @"helper/ActivateWindowsClipboard.ahk";
 
-        private string filePathForPlayPauseVideo = @"helper/PlayPauseVideo.ahk";
+        public static string filePathForPlayPauseVideo = @"helper/PlayPauseVideo.ahk";
 
-        private string filePathForGeneralDelay = @"helper/delayGeneral.txt";
-        private string filePathForDelayForRecordingToStart = @"helper/delayForRecordingToStart.txt";
+        public static string filePathForGeneralDelay = @"helper/delayGeneral.txt";
+        public static string filePathForDelayForRecordingToStart = @"helper/delayForRecordingToStart.txt";
 
         public Form1()// ChatGPT wrote everything in this method except for InitializeComponent()
         {
